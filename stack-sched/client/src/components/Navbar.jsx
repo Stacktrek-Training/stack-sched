@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "./logo-stack-sched.png";
-import home from "./ico-home.png";
-import chat from "./ico-chat.png";
-import bell from "./ico-bell.png";
+import logo from "../assets/logo/logo-stack-sched.png"
+import home from "../assets/ico/ico-home.png"
+import chat from "../assets/ico/ico-chat.png"
+import bell from "../assets/ico/ico-bell.png"
 
 const Navbar = () => {
   return (
@@ -163,18 +163,99 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        {/* Division for all cards */}
+        <div class="ml-[2.5rem]">
         {/* division for card (graduated class) */}
-        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-20 w-56">
-          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full">
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-20 w-72 h-44 mt-20">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
             <thead>
-              <tr class="font-bold text-center block">Graduated Class</tr>
+              <tr class="font-bold text-center text-lg">Graduated Class</tr>
             </thead>
             <tbody>
-              <td className="text-[#EF8134] font-bold text-5xl text-center">
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
                 13
               </td>
             </tbody>
           </table>
+        </div>
+        {/* division for card (total graduates) */}
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[28rem] w-11/12 h-[14rem] mt-[-13.5rem]">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr class="font-bold text-center text-lg">Total Graduates</tr>
+            </thead>
+            <tbody>
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
+                
+              </td>
+            </tbody>
+          </table>
+        </div>
+        {/* division for card (active students) */}
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[57rem] w-72 h-44 mt-[-16.5rem]">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr class="font-bold text-center text-lg">Active Students</tr>
+            </thead>
+            <tbody>
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
+                58
+              </td>
+            </tbody>
+          </table>
+          </div>
+        {/* division for card (pending class) */}
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[5rem] w-72 h-44 mt-[-1rem]">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr class="font-bold text-center text-lg">Pending Class</tr>
+            </thead>
+            <tbody>
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
+                4
+              </td>
+            </tbody>
+          </table>
+        </div>
+        {/* division for card (ongoing class) */}
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[28rem] w-44 h-44 mt-[-11rem]">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr class="font-bold text-center text-m">Ongoing Class</tr>
+            </thead>
+            <tbody>
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
+                5
+              </td>
+            </tbody>
+          </table>
+        </div>
+        {/* division for card (active trainers) */}
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[41rem] w-44 h-44 mt-[-13.5rem]">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr class="font-bold text-center text-m">Active Trainers</tr>
+            </thead>
+            <tbody>
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
+                23
+              </td>
+            </tbody>
+          </table>
+        </div>
+        {/* division for card (for pooling trainers) */}
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[57rem] w-72 h-44 mt-[-16rem]">
+          <table class="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr class="font-bold text-center text-lg">For Pooling Trainers</tr>
+            </thead>
+            <tbody>
+              <td className="text-[#EF8134] font-bold text-6xl text-center">
+                12
+              </td>
+            </tbody>
+          </table>
+        </div>
         </div>
       </nav>
     </div>

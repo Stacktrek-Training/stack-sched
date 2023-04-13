@@ -1,8 +1,9 @@
 import React from "react";
-import logo from "../assets/logo/logo-stack-sched.png"
-import home from "../assets/ico/ico-home.png"
-import chat from "../assets/ico/ico-chat.png"
-import bell from "../assets/ico/ico-bell.png"
+import logo from "../assets/logo/logo-stack-sched.png";
+import home from "../assets/ico/ico-home.png";
+import chat from "../assets/ico/ico-chat.png";
+import bell from "../assets/ico/ico-bell.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -137,12 +138,11 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to = "/trainers"
                   class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-1 mr-2"
                 >
                   Trainers
-                </a>
+                </Link>
               </li>
               {/* link icons */}
               <li>

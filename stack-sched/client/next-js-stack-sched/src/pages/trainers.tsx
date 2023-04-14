@@ -14,7 +14,7 @@ const trainers = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           {/* logo */}
           <a href="#/" className="flex items-center">
-          <Image src={logo} alt="/" className='w-[21rem] ml-[-1rem]' />
+            <Image src={logo} alt="/" className='w-[21rem] ml-[-1rem]' />
           </a>
           {/* division for user menu (profile picture) */}
           <div className="flex items-center md:order-2">
@@ -144,34 +144,36 @@ const trainers = () => {
               {/* link icons */}
               <li>
                 <a href="/">
-                <Image src={home} alt="/" className='w-[1.7rem] ml-12 mr-3' />
+                  <Image src={home} alt="/" className='w-[1.7rem] ml-12 mr-3' />
                 </a>
               </li>
               <li>
                 <a href="#">
-                <Image src={chat} alt="/" className='w-[1.7rem] mr-3' />
+                  <Image src={chat} alt="/" className='w-[1.7rem] mr-3' />
                 </a>
               </li>
               <li>
                 <a href="#">
-                <Image src={bell} alt="/" className='w-[1.5rem]' />
+                  <Image src={bell} alt="/" className='w-[1.5rem]' />
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        {/* division htformlFor all cards */}
+        {/* division for all cards */}
         <div className="m-auto mt-[-1rem]">
           {/* division for card (on-board) */}
           <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-52 h-36 m-5 ml-52">
             <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
               <thead>
-                <tr className="font-bold text-center text-m">ON-BOARD</tr>
+                <tr className="font-bold text-center text-m"><th>ON-BOARD</th></tr>
               </thead>
               <tbody>
-                <td className="text-[#2B7AD8] font-bold text-[3rem] text-center">
-                  13
-                </td>
+                <tr>
+                  <td className="text-[#2B7AD8] font-bold text-[3rem] text-center">
+                    13
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

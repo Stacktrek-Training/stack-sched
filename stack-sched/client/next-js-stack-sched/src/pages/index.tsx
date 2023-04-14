@@ -44,7 +44,6 @@ export default function Home() {
                   name@flowbite.com
                 </span>
               </div>
-
               {/* drop down links */}
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
@@ -81,7 +80,6 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-
             {/* side navigation button for mobile view */}
             <button
               data-collapse-toggle="mobile-menu-2"
@@ -145,7 +143,6 @@ export default function Home() {
                   Trainers
                 </a>
               </li>
-
               {/* link icons */}
               <li>
                 <a href="/">

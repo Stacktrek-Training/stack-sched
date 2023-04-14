@@ -12,6 +12,7 @@ import addIcon from '../assets/ico/ico-add.svg'
 const trainers = () => {
   return (
     <div>
+
       {/* navigation bar */}
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -19,6 +20,7 @@ const trainers = () => {
           <a href="#/" className="flex items-center">
             <Image src={logo} alt="/" className='w-[21rem] ml-[-1rem]' />
           </a>
+
           {/* division for user menu (profile picture) */}
           <div className="flex items-center md:order-2">
             <button
@@ -32,11 +34,13 @@ const trainers = () => {
               <span className="sr-only">Open user menu</span>
               <Image src={profile} alt="user photo" className='w-8 h-8 rounded-full' />
             </button>
+
             {/* division for drop down menu when profile picture clicked */}
             <div
               className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             >
+
               {/* division for drop down details */}
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
@@ -106,6 +110,7 @@ const trainers = () => {
               </svg>
             </button>
           </div>
+
           {/* division for link tabs */}
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 ml-0 "
@@ -163,6 +168,7 @@ const trainers = () => {
             </ul>
           </div>
         </div>
+
         {/* division for all cards */}
         <div className="ml-12">
           {/* division for card (on-board) */}
@@ -180,6 +186,7 @@ const trainers = () => {
               </tbody>
             </table>
           </div>
+
           {/* division for card (waiting) */}
           <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-60 h-36 m-5 ml-[31rem] mt-[-10.3rem]">
             <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
@@ -195,6 +202,7 @@ const trainers = () => {
               </tbody>
             </table>
           </div>
+
           {/* division for card (cancelled) */}
           <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-60 h-36 m-5 ml-[49rem] mt-[-10.3rem]">
             <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
@@ -211,8 +219,10 @@ const trainers = () => {
             </table>
           </div>
         </div>
+
         {/* division for tabs and table */}
         <div className='pr-5 pl-5'>
+
           {/* division for search bar */}
           <div className='ml-4 mb-4'>
             <div className="inline-flex w-[25rem] ml-[-1rem] mt-5">
@@ -316,6 +326,7 @@ const trainers = () => {
                 </button>
               </div>
             </div>
+
             {/* division for header buttons */}
             <div className="inline-flex rounded-md shadow-sm float-right mr-8 mt-4" role="group">
               <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
@@ -335,72 +346,72 @@ const trainers = () => {
 
           {/* division for trainers table */}
           <div className="relative shadow-md sm:rounded-lg mt-7 border-8 h-[40rem]">
-                <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                  <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                      <th scope="col" className="p-4">
-                        <div className="flex items-center">
-                          <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                          <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
-                        </div>
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Name
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Department
-                      </th>
-                      <th scope="col" className="px-6 py-3 ">
-                        Date Onboard
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Status
-                      </th>
-                      <th scope="col" className="px-6 py-3 ">
-                        Available Schedule
-                      </th>
-                      <th scope="col" className="px-6 py-3 ">
-                        Action
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className='overflow-auto'>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td className="w-4 p-4">
-                        <div className="flex items-center">
-                          <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                          <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                        </div>
-                      </td>
-                      <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full' />
-                        <div className="pl-3">
-                          <div className="text-base font-semibold">Garfin, April Jane</div>
-                          <div className="font-normal text-gray-500">apriljanegarfin.stacktrek@gmail.com</div>
-                        </div>
-                      </th>
-                      <td className="px-6 py-4">
-                        Full-stack Web Development
-                      </td>
-                      <td className="px-6 py-4">
-                        February 18, 2023
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center">
-                          <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Active
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                         M W F - 1:00  -4:00
-                      </td>
-                      <td className="px-6 py-4">
-                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                  <th scope="col" className="p-4">
+                    <div className="flex items-center">
+                      <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                      <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
+                    </div>
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Name
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Department
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Date Onboard
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Status
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Available Schedule
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody className='overflow-auto'>
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <td className="w-4 p-4">
+                    <div className="flex items-center">
+                      <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                      <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                    <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full' />
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">Garfin, April Jane</div>
+                      <div className="font-normal text-gray-500">apriljanegarfin.stacktrek@gmail.com</div>
+                    </div>
+                  </th>
+                  <td className="px-6 py-4">
+                    Full-stack Web Development
+                  </td>
+                  <td className="px-6 py-4">
+                    February 18, 2023
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center">
+                      <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Active
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    M W F - 1:00  -4:00
+                  </td>
+                  <td className="px-6 py-4">
+                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </nav>
     </div>
   )

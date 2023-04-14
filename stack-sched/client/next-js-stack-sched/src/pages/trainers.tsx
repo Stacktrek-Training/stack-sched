@@ -11,7 +11,7 @@ import addIcon from '../assets/ico/ico-add.svg'
 
 const trainers = () => {
   return (
-    <div className="h-screen w-screen">
+    <div>
       {/* navigation bar */}
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -126,7 +126,7 @@ const trainers = () => {
               </li>
               <li>
                 <a
-                  href="/shedule"
+                  href="/schedule"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-1 mr-2"
                 >
                   Trainers Schedule
@@ -220,11 +220,11 @@ const trainers = () => {
         </div>
 
         {/* division for tabs and table */}
-        <div className='pr-5 pl-5'>
+        <div className='pr-5 pl-5 max-w-screen'>
 
           {/* division for search bar */}
           <div className='ml-4 mb-4'>
-            <div className="inline-flex w-[25rem] ml-[-1rem] mt-5">
+            <div className="inline-flex w-[25rem] mt-5">
               <label
                 htmlFor="search-dropdown"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -327,7 +327,7 @@ const trainers = () => {
             </div>
 
             {/* division for header buttons */}
-            <div className="inline-flex rounded-md shadow-sm float-right mr-8 mt-4" role="group">
+            <div className="inline-flex rounded-md shadow-sm float-right mr-4 mt-4" role="group">
               <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                 <Image src={exportIcon} alt="/" className='w-4 mr-2' />
                 Export

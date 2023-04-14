@@ -11,7 +11,7 @@ import addIcon from '../assets/ico/ico-add.svg'
 
 const trainers = () => {
   return (
-    <div>
+    <div className="h-screen w-screen">
       {/* navigation bar */}
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -53,7 +53,7 @@ const trainers = () => {
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Dashboard
@@ -126,7 +126,7 @@ const trainers = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/shedule"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-1 mr-2"
                 >
                   Trainers Schedule
@@ -142,7 +142,7 @@ const trainers = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/trainers"
                   className="block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mt-1 mr-2"
                 >
                   Trainers

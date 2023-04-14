@@ -14,6 +14,7 @@ export default function Home() {
           <a href="#/" className="flex items-center">
             <Image src={logo} alt="/" className='w-[21rem] ml-[-1rem]' />
           </a>
+
           {/* division for user menu (profile picture) */}
           <div className="flex items-center md:order-2">
             <button
@@ -27,11 +28,13 @@ export default function Home() {
               <span className="sr-only">Open user menu</span>
               <Image src={profile} alt="user photo" className='w-8 h-8 rounded-full' />
             </button>
+
             {/* division for drop down menu when profile picture clicked */}
             <div
               className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             >
+
               {/* division for drop down details */}
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
@@ -41,6 +44,7 @@ export default function Home() {
                   name@flowbite.com
                 </span>
               </div>
+
               {/* drop down links */}
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
@@ -77,6 +81,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+
             {/* side navigation button for mobile view */}
             <button
               data-collapse-toggle="mobile-menu-2"
@@ -101,6 +106,7 @@ export default function Home() {
               </svg>
             </button>
           </div>
+
           {/* division for link tabs */}
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 ml-[-1rem]"
@@ -139,6 +145,7 @@ export default function Home() {
                   Trainers
                 </a>
               </li>
+
               {/* link icons */}
               <li>
                 <a href="/">
@@ -158,107 +165,112 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className='ml-11'>
-          {/* division for card (graduated class) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-20 w-72 h-48 mt-8">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-lg"><th>Total Graduates</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-[#EF8134] font-bold text-6xl text-center">
-                    53
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {/* division for card (total graduates) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[28rem] w-96 h-60 mt-[-14.5rem]">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-lg"><th>Graduated Class</th></tr>
-              </thead>
-              <tbody>
-                <tr><td className="text-[#EF8134] font-bold text-6xl text-center"></td></tr>
-              </tbody>
-            </table>
-          </div>
-          {/* division for card (active students) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[57rem] w-72 h-48 mt-[-17.5rem]">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-lg"><th>Active Students</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-[#EF8134] font-bold text-6xl text-center">
-                    73
-                  </td></tr>
-              </tbody>
-            </table>
-          </div>
-          {/* division for card (pending class) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[5rem] w-72 h-48 mt-[2rem]">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-lg"><th>Pending Class</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-[#EF8134] font-bold text-6xl text-center">
-                    4
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {/* division for card (ongoing class) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[27rem] w-48 h-48 mt-[-11.5rem]">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-m"><th>Ongoing Class</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-[#EF8134] font-bold text-6xl text-center">
-                    5
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {/* division for card (active trainers) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[41rem] w-48 h-48 mt-[-14.5rem]">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-m"><th>Active Trainers</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-[#EF8134] font-bold text-6xl text-center">
-                    23
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {/* division for card (for pooling trainers) */}
-          <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[57rem] w-72 h-48 mt-[-17.5rem]">
-            <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-              <thead>
-                <tr className="font-bold text-center text-lg"><th>For Pooling Trainers</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-[#EF8134] font-bold text-6xl text-center">
-                    12
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+        {/* division for card (total graduates) */}
+        <div className="block max-w- p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-20 w-72 h-48 mt-8">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-lg"><th>Total Graduates</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-[#EF8134] font-bold text-6xl text-center">
+                  53
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* division for card (graduated class) */}
+        <div className="block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[28rem] w-[30rem] h-60 mt-[-14.5rem]">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-lg"><th>Graduated Class</th></tr>
+            </thead>
+            <tbody>
+              <tr><td className="text-[#EF8134] font-bold text-6xl text-center"></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* division for card (active students) */}
+        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[62.8rem] w-72 h-48 mt-[-17.5rem]">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-lg"><th>Active Students</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-[#EF8134] font-bold text-6xl text-center">
+                  73
+                </td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* division for card (pending class) */}
+        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[5rem] w-72 h-48 mt-[2rem]">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-lg"><th>Pending Class</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-[#EF8134] font-bold text-6xl text-center">
+                  4
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* division for card (ongoing class) */}
+        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[27rem] w-56 h-48 mt-[-11.5rem]">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-m"><th>Ongoing Class</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-[#EF8134] font-bold text-6xl text-center">
+                  5
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* division for card (active trainers) */}
+        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[45rem] w-56 h-48 mt-[-14.5rem]">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-m"><th>Active Trainers</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-[#EF8134] font-bold text-6xl text-center">
+                  23
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* division for card (for pooling trainers) */}
+        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-10 ml-[63rem] w-72 h-48 mt-[-17.5rem]">
+          <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <thead>
+              <tr className="font-bold text-center text-lg"><th>For Pooling Trainers</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-[#EF8134] font-bold text-6xl text-center">
+                  12
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </nav>
     </div>

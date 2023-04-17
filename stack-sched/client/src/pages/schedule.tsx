@@ -160,14 +160,14 @@ const schedule = () => {
 
         {/* division for tabs and table */}
         <div className='pr-5 pl-5 max-w-screen'>
-          <div className='ml-4'>
+          <div className='p-3'>
 
             {/* division for search bar */}
-            <div className="inline-flex max-w-screen mt-5 mr-5">
+            <div className="inline-flex w-full mt-5 mr-5">
               <button
                 id="dropdown-button"
                 data-dropdown-toggle="dropdown"
-                className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+                className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 h-full"
                 type="button"
               >
                 Filter{" "}
@@ -211,7 +211,7 @@ const schedule = () => {
                   </li>
                 </ul>
               </div>
-              <div className="relative w-full">
+              <div className="relative w-96">
                 <input
                   type="search"
                   id="search-dropdown"
@@ -241,49 +241,89 @@ const schedule = () => {
                   <span className="sr-only">Search</span>
                 </button>
               </div>
-            </div>
 
-            {/* division for header buttons */}
-            <div className="inline-flex rounded-md shadow-sm mt-[1.35rem] h-[2.45rem] align-top" role="group">
-              <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                <Image src={exportIcon} alt="/" className='w-4 mr-2' />
-                Export
-              </button>
-              <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                <Image src={deleteIcon} alt="/" className='w-4 mr-2' />
-                Delete
-              </button>
+              {/* division for sub header tab */}
+              <div className='inline-flex justify-items-end'>
 
-              {/* division for popup modal for delete button */}
-              <div id="popup-modal" className="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div className="relative w-full max-w-md max-h-full">
-                  <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <button type="button" className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="popup-modal">
-                      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                      <span className="sr-only">Close modal</span>
+                {/* division for next previous button */}
+                <div className="inline-flex rounded-md shadow-sm mt-[0.06rem] h-[2.4rem]" role="group">
+                  <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <nav className="flex items-center justify-between" aria-label="Table navigation">
+                      <ul className="inline-flex items-center -space-x-px">
+                        <li>
+                          <a href="#">
+                            <span className="sr-only">Previous</span>
+                            <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">Previous</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </button>
+                  <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <nav className="flex items-center justify-between" aria-label="Table navigation">
+                      <ul className="inline-flex items-center -space-x-px">
+                        <li>
+                          <a href="#">Next</a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <span className="sr-only">Next</span>
+                            <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </button>
+                </div>
+
+                {/* division for header buttons */}
+                <div className="inline-flex rounded-md shadow-sm mt-[0.01rem] h-[2.45rem]" role="group">
+                  <div className='flex max-w-screen'>
+                    <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      <Image src={exportIcon} alt="/" className='w-4 mr-2' />
+                      Export
                     </button>
-                    <div className="p-6 text-center">
-                      <svg aria-hidden="true" className="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                      <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this schedule?</h3>
-                      <button data-modal-hide="popup-modal" type="button" className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Yes, I'm sure
-                      </button>
-                      <button data-modal-hide="popup-modal" type="button" className="text-gray-500 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+                    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      <Image src={deleteIcon} alt="/" className='w-4 mr-2' />
+                      Delete
+                    </button>
+                  </div>
+
+                  {/* division for popup modal for delete button */}
+                  <div id="popup-modal" className="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div className="relative w-full max-w-md max-h-full">
+                      <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <button type="button" className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="popup-modal">
+                          <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          <span className="sr-only">Close modal</span>
+                        </button>
+                        <div className="p-6 text-center">
+                          <svg aria-hidden="true" className="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                          <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this schedule?</h3>
+                          <button data-modal-hide="popup-modal" type="button" className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                            Yes, I'm sure
+                          </button>
+                          <button data-modal-hide="popup-modal" type="button" className="text-gray-500 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <Image src={addIcon} alt="/" className='w-4 mr-2' />
+                    Add Shift
+                  </button>
                 </div>
               </div>
-              <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                <Image src={addIcon} alt="/" className='w-4 mr-2' />
-                Add Shift
-              </button>
             </div>
           </div>
 
           {/* division for trainers table */}
-          <div className="relative shadow-md sm:rounded-lg mt-7 border-8 h-[40rem]">
+          <div className="relative shadow-md sm:rounded-lg mt-7 border-l-4 border-[#D55458] h-[40rem]">
             <div className="overflow-x-auto">
-              <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <table className="border-left-3 bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="p-4">
@@ -293,16 +333,25 @@ const schedule = () => {
                       </div>
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Time
+                      Shift Time
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Name
+                      Monday
                     </th>
                     <th scope="col" className="px-6 py-3 ">
-                      Day
+                      Tuesday
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      End Date
+                      Wednesday
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Thursday
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Friday
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Saturday
                     </th>
                     <th scope="col" className="px-6 py-3 ">
                       Action
@@ -320,18 +369,35 @@ const schedule = () => {
                     <td className="px-6 py-4">
                       10:00 AM - 11:00 AM
                     </td>
-                    <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
-                      <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full' />
-                      <div className="pl-3">
-                        <div className="text-base font-semibold">Jane</div>
-                        <div className="font-normal text-gray-500">April Jane Garfin</div>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.3rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      M W F
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.3rem]' />
+                      </div>
                     </td>
                     <td className="px-6 py-4">
-                      April 30, 2023
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.3rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.3rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.3rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.3rem]' />
+                      </div>
                     </td>
                     <td className="px-6 py-4">
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit shift</a>

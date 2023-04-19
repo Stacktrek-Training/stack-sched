@@ -9,6 +9,10 @@ import profile from '../assets/img/cyber-punk.jpeg'
 import exportIcon from '../assets/ico/export.svg'
 import deleteIcon from '../assets/ico/delete.svg'
 import addIcon from '../assets/ico/add.svg'
+import editIcon from '../assets/ico/edit.svg'
+import discord from '../assets/logo/discord.svg'
+import github from '../assets/logo/github.svg'
+import linkedin from '../assets/logo/linkedin.svg'
 
 const trainers = () => {
   return (
@@ -163,15 +167,15 @@ const trainers = () => {
         <div>
           <dl className="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-3 dark:text-white sm:p-8">
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">19</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">19</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">Active Trainers</dd>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">8</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">8</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">For Pooling Trainers</dd>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">27</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">27</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">Total Trainers</dd>
             </div>
           </dl>
@@ -337,13 +341,25 @@ const trainers = () => {
                       Name
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Department
+                      Address
                     </th>
                     <th scope="col" className="px-6 py-3 ">
+                      Specific Role
+                    </th>
+                    <th scope="col" className="px-6 py-3 ">
+                      Status
+                    </th>
+                    <th scope="col" className="px-6 py-3">
                       Date Onboard
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Status
+                      Certification
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Expertise
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Skills
                     </th>
                     <th scope="col" className="px-6 py-3 ">
                       Available Schedule
@@ -364,15 +380,16 @@ const trainers = () => {
                     <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
                       <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full' />
                       <div className="pl-3">
-                        <div className="text-base font-semibold">Garfin, April Jane</div>
+                        <div className="text-base font-semibold">Garfin, April Jane (Jane)</div>
+                        <div className="font-normal text-gray-500">09xxxxxxxxx</div>
                         <div className="font-normal text-gray-500">apriljanegarfin.stacktrek@gmail.com</div>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      Full-stack Web Development
+                      Sibalom, Antique
                     </td>
                     <td className="px-6 py-4">
-                      February 18, 2023
+                      Trainer
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
@@ -380,10 +397,25 @@ const trainers = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      M W F - 1:00  -4:00
+                      February 18, 2023
                     </td>
                     <td className="px-6 py-4">
-                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
+                      Gold
+                    </td>
+                    <td className="px-6 py-4">
+
+                    </td>
+                    <td className="px-6 py-4">
+                      Java, HTML, CSS
+                    </td>
+                    <td className="px-6 py-4">
+                      M W F - 1:00  -4:00
+                    </td>
+                    <td className="px-7 py-4 flex-wrap items-center align-middle">
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' /></a>
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={github} alt="/" className='w-[1.5rem] mr-1 mb-1' /></a>
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={linkedin} alt="/" className='w-[1.7rem] mr-1 mb-1' /></a>
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={editIcon} alt="/" className='w-[1.5rem] mr-1' /></a>
                     </td>
                   </tr>
                 </tbody>

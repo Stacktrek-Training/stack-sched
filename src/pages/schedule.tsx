@@ -365,6 +365,7 @@ const schedule = () => {
                   </tr>
                 </thead>
                 <tbody className='overflow-auto'>
+                  {/* first row */}
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td className="w-4 p-4">
                       <div className="flex items-center">
@@ -420,7 +421,7 @@ const schedule = () => {
                         <Image src={editIcon} alt="/" className='w-[1.5rem]' /></a>
                     </td>
                   </tr>
-
+                  {/* Second row */}
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td className="w-4 p-4">
                       <div className="flex items-center">
@@ -438,22 +439,22 @@ const schedule = () => {
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
-                      <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
-                      <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
-                      <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
-                      <Image src={girl1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={girl1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">

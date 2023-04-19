@@ -6,6 +6,7 @@ import home from '../assets/ico/home.svg';
 import chat from '../assets/ico/chat.svg';
 import bell from '../assets/ico/bell.svg';
 import profile from '../assets/img/cyber-punk.jpeg'
+import girl1 from '../assets/img/girl1.jpg'
 import exportIcon from '../assets/ico/export.svg'
 import deleteIcon from '../assets/ico/delete.svg'
 import addIcon from '../assets/ico/add.svg'
@@ -378,7 +379,7 @@ const trainers = () => {
                       </div>
                     </td>
                     <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
-                      <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full' />
+                      <Image src={girl1} alt="user profile" className='w-10 h-10 rounded-full' />
                       <div className="pl-3">
                         <div className="text-base font-semibold">Garfin, April Jane (Jane)</div>
                         <div className="font-normal text-gray-500">09xxxxxxxxx</div>

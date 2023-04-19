@@ -10,6 +10,11 @@ import exportIcon from '../assets/ico/export.svg'
 import deleteIcon from '../assets/ico/delete.svg'
 import addIcon from '../assets/ico/add.svg'
 import editIcon from '../assets/ico/edit.svg'
+import boy1 from '../assets/img/boy1.jpg'
+import boy2 from '../assets/img/boy2.jpg'
+import boy3 from '../assets/img/boy3.png'
+import girl1 from '../assets/img/girl1.jpg'
+import girl2 from '../assets/img/girl2.jpg'
 
 const schedule = () => {
   return (
@@ -368,41 +373,97 @@ const schedule = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      10:00 AM - 11:00 AM
+                      9:00 AM - 11:00 AM
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
                         <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className='flex flex-row'>
-                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' /><Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className='flex flex-row'>
-                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={girl2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
                         <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={girl2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
                         <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={girl2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className='flex flex-row'>
                         <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={girl2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={profile} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={boy1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                        <Image src={girl2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={boy2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
                       </div>
                     </td>
                     <td className="px-[2.2rem] py-4">
                       <a href="#" data-modal-target="edit-modal" data-modal-toggle="edit-modal" className="w-full font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <Image src={editIcon} alt="/" className='w-[1.5rem]' /></a>
+                        <Image src={editIcon} alt="/" className='w-[1.5rem]' /></a>
+                    </td>
+                  </tr>
+
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td className="w-4 p-4">
+                      <div className="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                        <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      10:00 AM - 11:00 AM
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                      <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                      <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                      <Image src={boy3} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                      <Image src={girl1} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className='flex flex-row'>
+                        <Image src={boy2} alt="user profile" className='w-10 h-10 rounded-full mr-[-0.5rem]' />
+                      </div>
+                    </td>
+                    <td className="px-[2.2rem] py-4">
+                      <a href="#" data-modal-target="edit-modal" data-modal-toggle="edit-modal" className="w-full font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        <Image src={editIcon} alt="/" className='w-[1.5rem]' /></a>
                     </td>
                   </tr>
                 </tbody>

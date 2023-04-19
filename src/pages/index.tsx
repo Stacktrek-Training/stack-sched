@@ -9,14 +9,16 @@ import profile from '../assets/img/cyber-punk.jpeg'
 export default function Home() {
   return (
     <div className="h-screen max-w-screen">
+
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
+
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           {/* logo */}
           <a href="/" className="flex items-center">
             <Image src={logo} alt="/" className='w-[16rem] ml-[-1rem]' />
           </a>
 
-          {/* division for menu */}
+          {/* profile picture */}
           <div className="flex items-center md:order-2">
             <button
               type="button"
@@ -30,13 +32,13 @@ export default function Home() {
               <Image src={profile} alt="user photo" className='w-8 h-8 rounded-full' />
             </button>
 
-            {/* division for drop down menu when profile picture clicked */}
+            {/* dropdown content when profile picture clicked */}
             <div
               className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             >
 
-              {/* division for drop down details */}
+              {/* profile picture dropdown content */}
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
                   Rieza Marie Banquillo
@@ -65,7 +67,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            {/* side navigation button for mobile view */}
+            {/* menu button for mobile view */}
             <button
               data-collapse-toggle="mobile-menu-2"
               type="button"
@@ -90,7 +92,7 @@ export default function Home() {
             </button>
           </div>
 
-          {/* division for link tabs */}
+          {/* link tabs */}
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 ml-[-1rem]"
             id="mobile-menu-2"
@@ -154,55 +156,66 @@ export default function Home() {
           </div>
         </div>
 
-        {/* division for dashboard */}
+        {/* dashboard content */}
         <div className="w-full min-h-screen bg-white dark:bg-gray-800 dark:border-gray-700">
           <ul className="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
             <li className="w-full hidden">
               <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" className="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600"></button>
             </li>
           </ul>
-          <div id="fullWidthTabContent" className="dark:border-gray-600">
-            <div className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
-              <div className="block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-80 mb-4">
-                <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
-                  <thead>
-                    <tr className="font-bold text-center text-xl text-gray-800"><th>Total Graduates</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td className="text-[#EF8134] font-bold text-6xl text-center"></td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <dl className="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
-                <div className="flex flex-col items-center justify-center">
-                  <dt className=" text-4xl font-extrabold text-[#EF8134]">19</dt>
-                  <dd className="text-gray-500 dark:text-gray-400">Active Trainers</dd>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">8</dt>
-                  <dd className="text-center text-gray-500 dark:text-gray-400">For Pooling Trainers</dd>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">12</dt>
-                  <dd className="text-gray-500 dark:text-gray-400">Ongoing Class</dd>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">1</dt>
-                  <dd className="text-gray-500 dark:text-gray-400">Pending Class</dd>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">--</dt>
-                  <dd className="text-gray-500 dark:text-gray-400">Graduated Class</dd>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">143</dt>
-                  <dd className="text-gray-500 dark:text-gray-400">Active Students</dd>
-                </div>
-              </dl>
+
+          {/* all cards */}
+          <div className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+
+            {/* total graduates card */}
+            <div className="block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-80 mb-4">
+              <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+                <thead>
+                  <tr className="font-bold text-center text-xl text-gray-800"><th>Total Graduates</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td className="text-[#EF8134] font-bold text-6xl text-center"></td></tr>
+                </tbody>
+              </table>
             </div>
+            {/* sub cards */}
+            <dl className="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
+              {/* active trainers card */}
+              <div className="flex flex-col items-center justify-center">
+                <dt className=" text-4xl font-extrabold text-[#EF8134]">19</dt>
+                <dd className="text-gray-500 dark:text-gray-400">Active Trainers</dd>
+              </div>
+              {/* for pooling trainers card */}
+              <div className="flex flex-col items-center justify-center">
+                <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">8</dt>
+                <dd className="text-center text-gray-500 dark:text-gray-400">For Pooling Trainers</dd>
+              </div>
+              {/* ongoing class card */}
+              <div className="flex flex-col items-center justify-center">
+                <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">12</dt>
+                <dd className="text-gray-500 dark:text-gray-400">Ongoing Class</dd>
+              </div>
+              {/* pending class card */}
+              <div className="flex flex-col items-center justify-center">
+                <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">1</dt>
+                <dd className="text-gray-500 dark:text-gray-400">Pending Class</dd>
+              </div>
+              {/* graduated class card */}
+              <div className="flex flex-col items-center justify-center">
+                <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">--</dt>
+                <dd className="text-gray-500 dark:text-gray-400">Graduated Class</dd>
+              </div>
+              {/* active students card */}
+              <div className="flex flex-col items-center justify-center">
+                <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">143</dt>
+                <dd className="text-gray-500 dark:text-gray-400">Active Students</dd>
+              </div>
+            </dl>
           </div>
         </div>
+
       </nav>
+
     </div>
   )
 }

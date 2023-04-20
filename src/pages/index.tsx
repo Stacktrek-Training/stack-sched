@@ -5,6 +5,7 @@ import home from '../assets/ico/home.svg';
 import chat from '../assets/ico/chat.svg';
 import bell from '../assets/ico/bell.svg';
 import profile from '../assets/img/cyber-punk.jpeg'
+import toga from '../assets/ico/toga.svg'
 
 export default function Home() {
   return (
@@ -168,13 +169,60 @@ export default function Home() {
           <div className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 
             {/* total graduates card */}
-            <div className="block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-80 mb-4">
-              <table className="dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+            <div className="overflow-auto block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-80 mb-4">
+              <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
                 <thead>
                   <tr className="font-bold text-center text-xl text-gray-800"><th>Total Graduates</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td className="text-[#EF8134] font-bold text-6xl text-center"></td></tr>
+                  <tr>
+                    <td>
+                      {/* timeline */}
+                      <div className='flex mt-[-1rem]'>
+                        <ol className="items-center sm:flex">
+                          <li className="relative mb-6 sm:mb-0">
+                            <div className="flex items-center">
+                              <div className="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+                                <svg aria-hidden="true" className="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                              </div>
+                              <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                            </div>
+                            <div className="mt-3 sm:pr-8">
+                              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Batch 10P</h3>
+                              <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">January 15, 2023</time>
+                              <p className="text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
+                            </div>
+                          </li>
+                          <li className="relative mb-6 sm:mb-0">
+                            <div className="flex items-center">
+                              <div className="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+                                <svg aria-hidden="true" className="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                              </div>
+                              <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                            </div>
+                            <div className="mt-3 sm:pr-8">
+                              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Batch 9P</h3>
+                              <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">December 3, 2022</time>
+                              <p className="text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
+                            </div>
+                          </li>
+                          <li className="relative mb-6 sm:mb-0">
+                            <div className="flex items-center">
+                              <div className="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+                                <svg aria-hidden="true" className="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                              </div>
+                              <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                            </div>
+                            <div className="mt-3 sm:pr-8">
+                              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Batch 8P</h3>
+                              <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 28, 2022</time>
+                              <p className="text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
+                            </div>
+                          </li>
+                        </ol>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

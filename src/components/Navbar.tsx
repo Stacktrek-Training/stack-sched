@@ -102,7 +102,7 @@ const Navbar = () => {
                         <li>
                             <a
                                 href="/"
-                                className="block py-2 pl-3 pr-4 text-gray-900 bg-blue-700 rounded md:bg-transparent md:p-0 md:dark:text-blue-500 mt-1 mr-2"
+                                className="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent md:p-0 md:hover:text-blue-700 md:dark:text-blue-500 mt-1 mr-2"
                                 aria-current="page"
                             >
                                 Dashboard

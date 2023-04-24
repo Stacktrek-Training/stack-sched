@@ -14,7 +14,7 @@ import girl2 from '../assets/img/girl2.jpg'
 
 const schedule = () => {
   return (
-    <div className='h-full max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
+    <div className='pb-4 h-full w-full bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
       <Navbar />
 
@@ -82,7 +82,7 @@ const schedule = () => {
         </div>
 
         {/* trainers table */}
-        <div className="relative shadow-md sm:rounded-lg mt-7 border-l-4 border-l-[#8329F5] h-[32rem]">
+        <div className="relative shadow-md sm:rounded-lg mt-7 border-l-4 border-l-[#8329F5] h-screen">
           <div className="overflow-x-auto">
             <table className="border-8 border-left-3 bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
               {/* header */}

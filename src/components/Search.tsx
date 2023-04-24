@@ -5,7 +5,7 @@ const Search = () => {
     return (
         <div>
             {/* search bar */}
-            < div className="relative w-96" >
+            < div className="relative w-full" >
                 <input
                     type="search"
                     id="search-dropdown"

@@ -3,7 +3,7 @@ import 'flowbite'
 
 const Search = () => {
     return (
-        <div>
+        <div className='w-full'>
             {/* search bar */}
             < div className="relative w-full" >
                 <input

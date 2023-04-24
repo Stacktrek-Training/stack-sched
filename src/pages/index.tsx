@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
 
       {/* dashboard content */}
-      <div className="w-full min-h-screen bg-white dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full max-h-full bg-white dark:bg-gray-800 dark:border-gray-700">
         <ul className="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
           <li className="w-full hidden">
             <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" className="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600"></button>
@@ -17,11 +17,11 @@ export default function Home() {
         </ul>
 
         {/* all cards */}
-        <div className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+        <div className="hidden bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 
           {/* total graduates card */}
-          <div className="overflow-auto block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-80 mb-4">
-            <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
+          <div className="mb-8 overflow-auto block max-w-m p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-80 max-h-full">
+            <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
               <thead>
                 <tr className="font-bold text-center text-xl text-gray-800"><th>Total Graduates</th></tr>
               </thead>

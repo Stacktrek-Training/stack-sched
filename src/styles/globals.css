@@ -17,8 +17,13 @@
 }
 
 @font-face {
-  font-family: myFont;
-  src: url(../assets/fonts/Cera-GR-Bold.ttf);
+  font-family: cera;
+  src: url(../assets/fonts/Cera-GR-Medium.otf);
+}
+
+@font-face {
+  font-family: roboto;
+  src: url(../assets/fonts/Roboto-Medium.ttf);
 }
 
 body {
@@ -29,5 +34,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  font-family: myFont;
+    font-family: cera;
+}
+
+#subDetails {
+  font-family: roboto;
 }

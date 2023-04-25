@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
-    <div className="h-screen max-w-screen">
+    <div className="h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
       {/* top navigation bar */}
       <Navbar />
 
@@ -29,7 +29,7 @@ export default function Home() {
                 <tr>
                   <td>
                     {/* timeline */}
-                    <div className='flex mt-[-1rem]'>
+                    <div className='flex mt-[2rem] p-4'>
                       <ol className="items-center sm:flex">
                         <li className="relative mb-6 sm:mb-0">
                           <div className="flex items-center">
@@ -81,32 +81,32 @@ export default function Home() {
           <dl className="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
             {/* active trainers card */}
             <div className="flex flex-col items-center justify-center">
-              <dt className=" text-4xl font-extrabold text-[#EF8134]">19</dt>
+              <dt className=" text-5xl font-extrabold text-[#EF8134]">19</dt>
               <dd className="text-gray-500 dark:text-gray-400">Active Trainers</dd>
             </div>
             {/* for pooling trainers card */}
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">8</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">8</dt>
               <dd className="text-center text-gray-500 dark:text-gray-400">For Pooling Trainers</dd>
             </div>
             {/* ongoing class card */}
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">12</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">12</dt>
               <dd className="text-gray-500 dark:text-gray-400">Ongoing Class</dd>
             </div>
             {/* pending class card */}
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">1</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">1</dt>
               <dd className="text-gray-500 dark:text-gray-400">Pending Class</dd>
             </div>
             {/* graduated class card */}
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">--</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">--</dt>
               <dd className="text-gray-500 dark:text-gray-400">Graduated Class</dd>
             </div>
             {/* active students card */}
             <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-4xl font-extrabold text-[#EF8134]">143</dt>
+              <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">143</dt>
               <dd className="text-gray-500 dark:text-gray-400">Active Students</dd>
             </div>
           </dl>

@@ -14,7 +14,7 @@ import girl2 from '../assets/img/girl2.jpg'
 
 const trainers = () => {
   return (
-    <div className="pb-4 max-h-full max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
+    <div className="pb-4 h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
       {/* top navigation bar */}
       <Navbar />
 

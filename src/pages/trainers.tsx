@@ -18,7 +18,7 @@ const trainers = () => {
       {/* top navigation bar */}
       <Navbar />
 
-      <div className='inline-flex w-full max-h-screen'>
+      <div className='mt-[1.28rem] inline-flex w-full max-h-screen'>
         {/* mini dashboard */}
         <div className='max-w-full'>
           <dl className="mr-2 grid max-w-screen-xl grid-cols-1 gap-9 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white sm:p-9 grid-rows-3 w-32 ml-2">
@@ -105,7 +105,7 @@ const trainers = () => {
           </div>
 
           {/* trainers table */}
-          <div className="relative shadow-md sm:rounded-lg mt-7 border-8 h-[27.6rem] max-w-screen">
+          <div className="relative shadow-md sm:rounded-lg mt-7 border-8 h-[28.1rem] max-w-screen">
             <div className="overflow-x-auto">
               <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
                 {/* header */}
@@ -117,7 +117,7 @@ const trainers = () => {
                         <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
                       </div>
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="py-3">
                       Name
                     </th>
                     <th scope="col" className="px-6 py-3">
@@ -154,14 +154,16 @@ const trainers = () => {
                       </div>
                     </td>
                     {/* name column */}
-                    <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
+                    <td scope="row" className="flex items-center px-0 py-4 text-gray-900  dark:text-white">
                       <div className="relative w-[2.6rem]">
-                        <Image className="max-w-full h-10 rounded-full border-4 border-[#fead81]" src={girl2} alt="profile image" />
+                        <Image className="max-w-full h-10 rounded-full" src={girl2} alt="profile image" />
+
+                        <span className="top-7 left-7 absolute  w-3.5 h-3.5 bg-[#fead81] border-2 border-white dark:border-gray-800 rounded-full"></span>
                       </div>
                       <div className="pl-3">
                         <div className="text-base font-semibold">Garfin, April Jane (Jane)</div>
                         <div className="font-normal text-gray-500">09xxxxxxxxx</div>
-                        <div className="font-normal text-gray-500">apriljanegarfin.stacktrek@gmail.com</div>
+                        <div className="flex font-normal text-gray-500">apriljanegarfin.stacktrek@gmail.com</div>
                       </div>
                     </td>
                     {/* address column */}
@@ -209,7 +211,7 @@ const trainers = () => {
                       </div>
                     </td>
                     {/* name column */}
-                    <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
+                    <td scope="row" className="flex items-center py-4 text-gray-900  dark:text-white">
                       <div className="relative w-[2.6rem]">
                         <Image className="max-w-full h-10 rounded-full" src={girl1} alt="profile image" />
 

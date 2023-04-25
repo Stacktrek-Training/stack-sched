@@ -10,6 +10,7 @@ import github from '../assets/logo/github.svg'
 import linkedin from '../assets/logo/linkedin.svg'
 import gmail from '../assets/logo/gmail.svg'
 import girl1 from '../assets/img/girl1.jpg'
+import girl2 from '../assets/img/girl2.jpg'
 
 const trainers = () => {
   return (
@@ -132,9 +133,6 @@ const trainers = () => {
                       Date Onboard
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Certification
-                    </th>
-                    <th scope="col" className="px-6 py-3">
                       Skills
                     </th>
                     <th scope="col" className="px-6 py-3 ">
@@ -157,7 +155,9 @@ const trainers = () => {
                     </td>
                     {/* name column */}
                     <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
-                      <Image src={girl1} alt="user profile" className='w-10 h-10 rounded-full' />
+                      <div className="relative w-[2.6rem]">
+                        <Image className="max-w-full h-10 rounded-full border-4 border-[#fead81]" src={girl2} alt="profile image" />
+                      </div>
                       <div className="pl-3">
                         <div className="text-base font-semibold">Garfin, April Jane (Jane)</div>
                         <div className="font-normal text-gray-500">09xxxxxxxxx</div>
@@ -183,9 +183,63 @@ const trainers = () => {
                       February 18, 2023
                     </td>
                     {/* certification column */}
+                    {/* skills column */}
                     <td className="px-6 py-4">
-                      Gold
+                      Java, HTML, CSS
                     </td>
+                    {/* available schedule column */}
+                    <td className="px-6 py-4">
+                      M W F - 1:00  -4:00
+                    </td>
+                    {/* action column */}
+                    <td className="px-7 py-4 flex-wrap items-center align-middle">
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' /></a>
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={github} alt="/" className='w-[1.5rem] mr-1 mb-1' /></a>
+                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={linkedin} alt="/" className='w-[1.7rem] mr-1 mb-1' /></a>
+                      <a href="#" data-modal-target="edit-modal" data-modal-toggle="edit-modal" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={editIcon} alt="/" className='w-[1.5rem] mr-1' /></a>
+                    </td>
+                  </tr>
+                  {/* row 2 */}
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    {/* checkbox */}
+                    <td className="w-4 p-4">
+                      <div className="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                        <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
+                      </div>
+                    </td>
+                    {/* name column */}
+                    <td scope="row" className="flex items-center px-6 py-4 text-gray-900  dark:text-white">
+                      <div className="relative w-[2.6rem]">
+                        <Image className="max-w-full h-10 rounded-full" src={girl1} alt="profile image" />
+
+                        <span className="top-7 left-7 absolute  w-3.5 h-3.5 bg-[#ffdd81] border-2 border-white dark:border-gray-800 rounded-full"></span>
+                      </div>
+                      <div className="pl-3">
+                        <div className="text-base font-semibold">Sabino, Rustia (Mutya)</div>
+                        <div className="font-normal text-gray-500">09xxxxxxxxx</div>
+                        <div className="font-normal text-gray-500">rustiasabino.stacktrek@gmail.com</div>
+                      </div>
+                    </td>
+                    {/* address column */}
+                    <td className="px-6 py-4">
+                      Sibalom, Antique
+                    </td>
+                    {/* specific role column */}
+                    <td className="px-6 py-4">
+                      Trainer
+                    </td>
+                    {/* status column */}
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Active
+                      </div>
+                    </td>
+                    {/* date onboard column */}
+                    <td className="px-6 py-4">
+                      February 18, 2023
+                    </td>
+                    {/* certification column */}
                     {/* skills column */}
                     <td className="px-6 py-4">
                       Java, HTML, CSS

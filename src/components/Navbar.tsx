@@ -2,22 +2,19 @@ import React from 'react'
 import 'flowbite'
 import Image from "next/image"
 import logo from "../assets/logo/logo-stack-sched.png"
-import home from "../assets/ico/home.svg"
-import chat from "../assets/ico/chat.svg"
-import bell from "../assets/ico/bell.svg"
 import profile from "../assets/img/cyber-punk.jpeg"
 
 const Navbar = () => {
     return (
-        <nav className="h-12 border-gray-200 dark:bg-gray-900">
-            <div className="max-w-screen-xl align-middle flex flex-wrap items-center justify-between mx-auto p-4">
+        <nav className="top-0 sticky z-50 bg-white border-b h-16 border-gray-200 dark:bg-gray-900">
+            <div className="max-w-screen align-middle flex flex-wrap items-center justify-between mx-auto p-3 px-4">
                 {/* logo */}
                 <a href="/" className="flex items-center">
-                    <Image src={logo} alt="/" className="w-[16rem] ml-[-1rem] mt-[-0.4rem]" />
+                    <Image src={logo} alt="/" className="w-[16rem] ml-[-1rem]" />
                 </a>
 
                 {/* profile picture */}
-                <div className="flex items-center md:order-2 mt-[-0.85rem]">
+                <div className="flex items-center md:order-2 justify-end">
                     <button
                         type="button"
                         className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -89,7 +86,7 @@ const Navbar = () => {
 
                 {/* link tabs */}
                 <div
-                    className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 ml-[-1rem] mt-[-0.2rem] z-20"
+                    className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 ml-[-1rem] z-20"
                     id="mobile-menu-2"
                 >
                     <ul className="flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 ml-[-0.1rem]">

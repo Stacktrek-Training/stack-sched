@@ -14,7 +14,7 @@ import girl2 from '../assets/img/girl2.jpg'
 
 const schedule = () => {
   return (
-    <div className='pb-4 h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
+    <div className='md:h-[67.5rem] h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
       <Navbar />
 
@@ -23,7 +23,7 @@ const schedule = () => {
         <div className='p-3 flex-wrap'>
 
           {/* search bar with filter dropdown */}
-          <div className="inline-flex w-full mt-5 mr-5">
+          <div className="inline-flex w-full mt-2 mr-5">
             <button
               id="dropdown-button"
               data-dropdown-toggle="dropdown"
@@ -48,7 +48,7 @@ const schedule = () => {
             {/* filter dropdown content */}
             <div
               id="dropdown"
-              className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              className="z-30 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
             >
               <ul
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -78,11 +78,11 @@ const schedule = () => {
         </div>
 
         {/* trainers table */}
-        <div className="relative shadow-md sm:rounded-lg mt-[1rem] border-l-4 border-l-[#8329F5] max-h-screen">
-          <div className="overflow-x-auto h-[29rem] rounded-r-lg">
-            <table className="table-auto border-8 border-left-3 bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <div className="relative shadow-md sm:rounded-lg mt-2 border-l-4 border-l-[#8329F5] h-[58rem]">
+          <div className="h-full overflow-y-auto">
+            <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
               {/* header */}
-              <thead className="text-sm text-regu text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+              <thead className="sticky top-0 z-20 text-sm text-regu text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="p-4">
                     <div className="flex items-center">
@@ -216,7 +216,7 @@ const schedule = () => {
                   {/* action column */}
                   <td className="px-[2.2rem] py-2">
                     <a href="#" data-modal-target="edit-modal" data-modal-toggle="edit-modal" className="w-full font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <Image src={editIcon} alt="/" className='w-[1.35rem]' /></a>
+                      <Image src={editIcon} alt="/" className='w-[1.2rem]' /></a>
                   </td>
                 </tr>
 
@@ -263,7 +263,7 @@ const schedule = () => {
                   </td>
                   <td className="px-[2.2rem] py-2">
                     <a href="#" data-modal-target="edit-modal" data-modal-toggle="edit-modal" className="w-full font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <Image src={editIcon} alt="/" className='w-[1.35rem]' /></a>
+                      <Image src={editIcon} alt="/" className='w-[1.2rem]' /></a>
                   </td>
                 </tr>
               </tbody>
@@ -272,7 +272,7 @@ const schedule = () => {
         </div>
 
         {/* modal for add trainer form */}
-        <div id="add-modal" aria-hidden="true" className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="add-modal" aria-hidden="true" className="z-50 fixed top-0 left-0 right-0 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
           <div className="relative w-[52rem] max-h-full">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
               {/* X button for close modal */}

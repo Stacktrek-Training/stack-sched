@@ -68,7 +68,7 @@ const trainers = () => {
               {/* filter dropdown content */}
               <div
                 id="dropdown"
-                className="z-40 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                className="z-30 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -110,7 +110,7 @@ const trainers = () => {
             <div className="h-full overflow-y-auto">
               <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 {/* header */}
-                <thead className="sticky top-0 z-30 text-center text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+                <thead className="sticky top-0 z-20 text-center text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="p-4">
                       <div className="flex items-center">

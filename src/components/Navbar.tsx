@@ -6,7 +6,7 @@ import profile from "../assets/img/cyber-punk.jpeg"
 
 const Navbar = () => {
     return (
-        <nav className="top-0 sticky z-50 bg-white border-b h-16 border-gray-200 dark:bg-gray-900">
+        <nav className="top-0 sticky z-40 bg-white border-b h-16 border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen align-middle flex flex-wrap items-center justify-between mx-auto p-3 px-4">
                 {/* logo */}
                 <a href="/" className="flex items-center">

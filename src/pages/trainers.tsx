@@ -15,7 +15,7 @@ import girl2 from '../assets/img/girl2.jpg'
 
 const trainers = () => {
   return (
-    <div className='md:h-[67.5rem] h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
+    <div className='h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
       <Navbar />
 
@@ -106,7 +106,7 @@ const trainers = () => {
           </div>
 
           {/* trainers table */}
-          <div className="relative shadow-md sm:rounded-lg mt-2 border-8 max-w-screen h-[58rem]">
+          <div className="relative shadow-md sm:rounded-lg mt-2 border-8 max-w-screen h-[58rem]" style={{ height: "calc(100vh - 160px)" }}>
             <div className="h-full overflow-y-auto">
               <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 {/* header */}

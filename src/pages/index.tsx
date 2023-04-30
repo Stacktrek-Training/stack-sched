@@ -6,13 +6,13 @@ import discord from '../assets/logo/discord.svg'
 
 export default function Home() {
   return (
-    <div className="h-screen w-screen bg-white dark:bg-gray-800 dark:border-gray-700" style={{ height: '100vh', position: 'fixed' }}>
+    <div className="overflow-y-auto h-screen w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
       {/* top navigation bar */}
       <Navbar />
 
-      <div className="mx-auto text-gray-90 dark:text-white h-full w-full">
+      <div className="mt-2 h-full w-full text-gray-90 dark:text-white" style={{ height: "88%" }}>
         {/* dashboard content */}
-        <div className="w-full h-full bg-white dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full h-full p-4 bg-white dark:bg-gray-800 dark:border-gray-700">
           <ul className="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
             <li className="w-full hidden">
               <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" className="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600"></button>
@@ -20,11 +20,11 @@ export default function Home() {
           </ul>
 
           {/* all main cards */}
-          <div className="grid grid-cols-3 grid-rows-1 gap-8 rounded-lg md:p-8 dark:bg-gray-800 h-full w-full" id="stats" role="tabpanel" aria-labelledby="stats-tab" style={{ height: "67%" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-lg md:p- dark:bg-gray-800 h-full w-full mb-4" id="stats" role="tabpanel" aria-labelledby="stats-tab" style={{ height: "74%" }}>
 
             {/* total graduates card */}
-            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 max-h-fit">
-              <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
+            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
+              <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-center text-xl text-gray-800"><th>Total Graduates</th></tr>
                 </thead>
@@ -49,7 +49,7 @@ export default function Home() {
             </div>
 
             {/* active trainers card */}
-            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 max-h-full">
+            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-lg text-gray-800 border-b">
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
 
             {/* for pooling trainers card */}
-            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 max-h-full">
+            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-lg text-gray-800 border-b">
@@ -108,26 +108,26 @@ export default function Home() {
           </div>
 
           {/* sub cards */}
-          <div className='max-h-full w-full mt-[-1rem]'>
-            <dl className="grid max-w-screen-xl grid-cols-4 gap-60 p-4 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-4 dark:text-white sm:p-8">
+          <div className='h-fit w-full'>
+            <dl className="grid max-w-screen grid-cols-2 gap-6 p-2 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-4 dark:text-white sm:p-8">
               {/* graduated class card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">--</dt>
+                <dt className="text-5xl font-extrabold text-[#EF8134]">--</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Graduated Class</dd>
               </div>
               {/* active students card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">143</dt>
+                <dt className="text-5xl font-extrabold text-[#EF8134]">143</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Active Students</dd>
               </div>
               {/* ongoing class card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">12</dt>
+                <dt className="text-5xl font-extrabold text-[#EF8134]">12</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Ongoing Class</dd>
               </div>
               {/* pending class card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="mb-2 text-5xl font-extrabold text-[#EF8134]">1</dt>
+                <dt className="text-5xl font-extrabold text-[#EF8134]">1</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Pending Class</dd>
               </div>
             </dl>

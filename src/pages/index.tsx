@@ -30,7 +30,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className='flex mt-2 px-16'>
+                    <td className='flex mt-2 px-12'>
                       {/* timeline */}
                       <ol className="relative border-l border-gray-200 dark:border-gray-700">
                         <li className="mb-10 ml-6">

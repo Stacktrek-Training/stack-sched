@@ -22,7 +22,7 @@ const trainers = () => {
       <div className='inline-flex w-full max-h-screen'>
         {/* mini dashboard */}
         <div className='max-w-screen h-auto flex'>
-          <dl className="mr-2 grid max-w-screen-xl grid-cols-1 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white sm:px-5 grid-rows-3 w-32">
+          <dl className="grid max-w-screen-xl grid-cols-1 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white grid-rows-3 w-32w-32">
             <div className="py-4 max-h-full flex flex-col items-center justify-center">
               <dt className="text-5xl font-extrabold text-[#EF8134]">19</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">Active Trainers</dd>
@@ -39,11 +39,10 @@ const trainers = () => {
         </div>
 
         {/* tabs and table */}
-        <div className='pr-3 w-full h-full'>
-          <div className='p-3 inline-flex w-full max-h-screen'>
-
+        <div className='pr-6 pl-4 w-screen lg:mt-4'>
+          <div className='p-3 grid grid-cols-1 md:grid-cols-2 gap-4 justify-start md:justify-end'>
             {/* search bar with filter dropdown */}
-            <div className="inline-flex w-full">
+            <div className="inline-flex w-full px-1 mr-5">
               <button
                 id="dropdown-button"
                 data-dropdown-toggle="dropdown"
@@ -101,12 +100,12 @@ const trainers = () => {
                 </ul>
               </div>
               <Search />
-              <ButtonsTrainersTable />
             </div>
+            <ButtonsTrainersTable />
           </div>
 
           {/* trainers table */}
-          <div className="relative shadow-md sm:rounded-lg mt-2 border-8 max-w-screen h-[58rem]" style={{ height: "calc(100vh - 160px)" }}>
+          <div className="relative shadow-md sm:rounded-lg border-l-4 border-l-[#8329F5] h-full overflow-y-auto lg:mt-4" style={{ height: "calc(100vh - 190px)" }}>
             <div className="h-full overflow-y-auto">
               <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 {/* header */}
@@ -395,78 +394,90 @@ const trainers = () => {
                             </div>
 
                             {/* status */}
-                            <div>
-                              <h1 className="block mb-2 text-sm font-sm text-gray-900 dark:text-white">Status</h1>
-                              <button id="dropdownFormButton" data-dropdown-toggle="dropdown2" className="w-full bg-gray-50 focus:ring-2 focus:outline-none focus:ring-blue-500 border border-gray-300 text-gray-900 text-sm rounded-lg px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select<svg className="w-full h-4 ml-28" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                            <div className='relative'>
+                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Status </label>
+                              <button id="statusButton" data-dropdown-toggle="status" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
+                                Select Status
+                                <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                              </button>
 
                               {/* status dropdown content */}
-                              <div id="dropdown2" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700">
-                                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownFormButton">
+                              <div id="status" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-full">
+                                <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="statusButton">
                                   <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Active</a>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Active</label>
+                                    </div>
                                   </li>
                                   <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">For Pooling</a>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">For Pooling</label>
+                                    </div>
                                   </li>
                                 </ul>
                               </div>
                             </div>
                           </div>
 
-                          <div>
-                            {/* available day */}
-                            <div className="grid gap-6 mb-4 md:grid-cols-2">
-                              <div>
-                                <label className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Time : </label>
-                                <input className="w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time" />
-                              </div>
+                          {/* available day */}
+                          <div className="grid gap-6 mb-4 md:grid-cols-2">
+                            <div>
+                              <label className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Time : </label>
+                              <input className="w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time" />
+                            </div>
 
-                              {/* available day dropdown button */}
-                              <div>
-                                <label className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Day : </label>
-                                <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" className="w-full text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select<svg className="w-4 h-4 ml-28" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                            {/* available day dropdown button */}
+                            <div className='w-full'>
+                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Available Day :</label>
+                              <button id="availableDayButton" data-dropdown-toggle="availableDay" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
+                                Select Days
+                                <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                              </button>
 
-                                {/* available day dropdown content */}
-                                <div id="dropdownBgHover" className="z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-52">
-                                  <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
-                                    <li>
-                                      <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                        <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Monday</label>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                        <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Tuesday</label>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                        <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Wednesday</label>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                        <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Thursday</label>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                        <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Friday</label>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                        <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Saturday</label>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
+                              {/* available day dropdown content */}
+                              <div id="availableDay" className="z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-52">
+                                <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="availableDayButton">
+                                  <li>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Monday</label>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Tuesday</label>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Wednesday</label>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Thursday</label>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Friday</label>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                      <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Saturday</label>
+                                    </div>
+                                  </li>
+                                </ul>
                               </div>
                             </div>
                           </div>
@@ -474,7 +485,7 @@ const trainers = () => {
                       </div>
 
                       <div>
-                        <div className="grid gap-6 md:grid-cols-2">
+                        <div className="grid gap-6 md:grid-cols-2 mb-4">
                           {/* skills related section */}
                           <div>
                             <h1 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Skills Related</h1>
@@ -484,26 +495,35 @@ const trainers = () => {
                             </div>
                           </div>
 
-                          <div>
-                            {/* certification */}
-                            <div>
-                              <label className="text-sm font-medium text-gray-900 dark:text-white">Certification : </label>
-                              <button id="dropdownFormButton" data-dropdown-toggle="dropdown3" className="mt-1 w-full bg-gray-50 focus:ring-2 focus:outline-none focus:ring-blue-500 border border-gray-300 text-gray-900 text-sm rounded-lg px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select<svg className="w-full h-4 ml-28" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                          {/* certification */}
+                          <div className='relative'>
+                            <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Certification </label>
+                            <button id="certButton" data-dropdown-toggle="cert" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
+                              Select Certification
+                              <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                              </svg>
+                            </button>
 
-                              {/* certification dropdown content */}
-                              <div id="dropdown3" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700">
-                                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownFormButton">
-                                  <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Bronze</a>
-                                  </li>
-                                  <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Silver</a>
-                                  </li>
-                                  <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Gold</a>
-                                  </li>
-                                </ul>
-                              </div>
+                            {/* certification dropdown content */}
+                            <div id="cert" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-full">
+                              <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="certButton">
+                                <li>
+                                  <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Bronze</label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Silver</label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Gold</label>
+                                  </div>
+                                </li>
+                              </ul>
                             </div>
                           </div>
                         </div>

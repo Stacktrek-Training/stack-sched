@@ -19,10 +19,11 @@ const trainers = () => {
       {/* top navigation bar */}
       <Navbar />
 
-      <div className='inline-flex w-full max-h-screen'>
+      <div className='inline-flex w-full max-h-screen '>
+
         {/* mini dashboard */}
         <div className='max-w-screen h-auto flex'>
-          <dl className="grid max-w-screen-xl grid-cols-1 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white grid-rows-3 w-32w-32">
+          <dl className="pl-4 xl:flex-col  sm:flex-row grid max-w-screen-xl grid-cols-1 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white grid-rows-3 w-32">
             <div className="py-4 max-h-full flex flex-col items-center justify-center">
               <dt className="text-5xl font-extrabold text-[#EF8134]">19</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">Active Trainers</dd>
@@ -751,6 +752,7 @@ const trainers = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import discord from '../assets/logo/discord.svg'
 
 export default function Home() {
   return (
-    <div className="overflow-y-auto h-screen w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
+    <div className="overflow-y-auto h-screen w-screen bg-white dark:bg-gray-800 dark:border-gray-700 text-sm">
       {/* top navigation bar */}
       <Navbar />
 
@@ -23,10 +23,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-lg md:p- dark:bg-gray-800 h-full w-full mb-4" id="stats" role="tabpanel" aria-labelledby="stats-tab" style={{ height: "74%" }}>
 
             {/* total graduates card */}
-            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
+            <div className="mb-1 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
-                  <tr className="font-bold text-center text-xl text-gray-800"><th>Total Graduates</th></tr>
+                  <tr className="font-bold text-center text-[1rem] text-gray-800"><th>Total Graduates</th></tr>
                 </thead>
                 <tbody>
                   <tr>
@@ -37,9 +37,9 @@ export default function Home() {
                           <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
                             <svg aria-hidden="true" className="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                           </span>
-                          <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Batch 10P</h3>
+                          <h3 className="flex items-center mb-1 text-[1rem] font-semibold text-gray-900 dark:text-white">Batch 10P</h3>
                           <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">January 13, 2022</time>
-                          <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
+                          <p className="mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">Description</p>
                         </li>
                       </ol>
                     </td>
@@ -53,13 +53,13 @@ export default function Home() {
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-lg text-gray-800 border-b">
-                    <th className='px-4 w-auto text-left'>Active Trainers</th>
-                    <th className='px-4 w-auto text-center'>Discord</th>
+                    <th className='px-4 w-auto text-left text-[1rem]'>Active Trainers</th>
+                    <th className='px-4 w-auto text-center text-[1rem]'>Discord</th>
                   </tr>
                 </thead>
                 <tbody className='whitespace-nowrap'>
                   <tr className='text-black mb-1 h-fit py-1'>
-                    <td className='px-4 text-left py-2'>
+                    <td className='px-4 text-left py-1'>
                       <h2 className='border-l-2 border-blue-700 px-2 py-1'>Sabino, Rustia (Mutya)</h2>
                     </td>
                     <td className='items-center justify-center flex py-2'>
@@ -87,8 +87,8 @@ export default function Home() {
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-lg text-gray-800 border-b">
-                    <th className='px-4 w-auto text-left'>For Pooling Trainers</th>
-                    <th className='px-4 w-auto text-center'>Discord</th>
+                    <th className='px-4 w-auto text-left text-[1rem]'>For Pooling Trainers</th>
+                    <th className='px-4 w-auto text-center text-[1rem]'>Discord</th>
                   </tr>
                 </thead>
                 <tbody className='whitespace-nowrap'>
@@ -112,22 +112,22 @@ export default function Home() {
             <dl className="grid max-w-screen grid-cols-2 gap-6 p-2 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-4 dark:text-white sm:p-8">
               {/* graduated class card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="text-5xl font-extrabold text-[#EF8134]">--</dt>
+                <dt className="text-[3rem] mb-8 font-extrabold text-[#EF8134]">--</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Graduated Class</dd>
               </div>
               {/* active students card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="text-5xl font-extrabold text-[#EF8134]">143</dt>
+                <dt className="text-[3rem] mb-8 font-extrabold text-[#EF8134]">143</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Active Students</dd>
               </div>
               {/* ongoing class card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="text-5xl font-extrabold text-[#EF8134]">12</dt>
+                <dt className="text-[3rem] mb-8 font-extrabold text-[#EF8134]">12</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Ongoing Class</dd>
               </div>
               {/* pending class card */}
               <div className="flex flex-col items-center justify-center">
-                <dt className="text-5xl font-extrabold text-[#EF8134]">1</dt>
+                <dt className="text-[3rem] mb-8 font-extrabold text-[#EF8134]">1</dt>
                 <dd className="text-gray-500 dark:text-gray-400">Pending Class</dd>
               </div>
             </dl>

@@ -82,30 +82,30 @@ const schedule = () => {
           <div className="h-full overflow-y-auto">
             <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
               {/* header */}
-              <thead className="sticky top-0 z-20 text-sm text-regu text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+              <thead className="sticky top-0 z-20 text-sm text-regular text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Shift Time
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Monday
                   </th>
-                  <th scope="col" className="px-6 py-3 ">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Tuesday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Wednesday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Thursday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Friday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Saturday
                   </th>
-                  <th scope="col" className="px-6 py-3 ">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem] ">
                     Action
                   </th>
                 </tr>

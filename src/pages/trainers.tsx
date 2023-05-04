@@ -25,15 +25,15 @@ const trainers = () => {
         <div className='max-w-screen h-auto flex'>
           <dl className="pl-4 xl:flex-col  sm:flex-row grid max-w-screen-xl grid-cols-1 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white grid-rows-3 w-32">
             <div className="py-4 max-h-full flex flex-col items-center justify-center">
-              <dt className="text-5xl font-extrabold text-[#EF8134]">19</dt>
+              <dt className="text-5xl font-extrabold text-[#EF8134] mb-4">19</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">Active Trainers</dd>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <dt className="text-5xl font-extrabold text-[#EF8134]">8</dt>
+              <dt className="text-5xl font-extrabold text-[#EF8134] mb-4">8</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">For Pooling Trainers</dd>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <dt className="text-5xl font-extrabold text-[#EF8134]">27</dt>
+              <dt className="text-5xl font-extrabold text-[#EF8134] mb-4">27</dt>
               <dd className="text-gray-500 dark:text-gray-400 text-center">Total Trainers</dd>
             </div>
           </dl>
@@ -118,28 +118,28 @@ const trainers = () => {
                         <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
                       </div>
                     </th>
-                    <th scope="col" className="px-2 py-3">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Name
                     </th>
-                    <th scope="col" className="px-2 py-3">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Address
                     </th>
-                    <th scope="col" className="px-2 py-3 ">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Specific Role
                     </th>
-                    <th scope="col" className="px-2 py-3 ">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Status
                     </th>
-                    <th scope="col" className="px-2 py-3">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Date Onboard
                     </th>
-                    <th scope="col" className="px-2 -3">
+                    <th scope="col" className="px-2 -3 text-[0.8rem]">
                       Skills
                     </th>
-                    <th scope="col" className="px-2 py-3 ">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Available Schedule
                     </th>
-                    <th scope="col" className="px-2 py-3">
+                    <th scope="col" className="px-2 py-3 text-[0.8rem]">
                       Action
                     </th>
                   </tr>
@@ -156,46 +156,46 @@ const trainers = () => {
                       </div>
                     </td>
                     {/* name column */}
-                    <td scope="row" className="flex items-center px-2 py-4 h-20 text-gray-900  dark:text-white">
+                    <td scope="row" className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white">
                       <div className="relative w-[2.6rem] my-[2.3rem]">
-                        <Image className="max-w-full h-10 rounded-full" src={girl2} alt="profile image" />
+                        <Image className="w-auto h-9 rounded-full" src={girl2} alt="profile image" />
                         {/* profile indicator */}
-                        <span className="top-7 left-7 absolute  w-3.5 h-3.5 bg-[#CD7F32] border-2 border-white dark:border-gray-800 rounded-full"></span>
+                        <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#CD7F32] border-2 border-white dark:border-gray-800 rounded-full"></span>
                       </div>
-                      <div className="pl-3">
-                        <div className="text-base font-semibold">Garfin, April Jane (Jane)</div>
+                      <div className="pl-3 text-sm pt-2">
+                        <div className="font-semibold">Garfin, April Jane (Jane)</div>
                         <div className="font-normal text-gray-500">09xxxxxxxxx</div>
                         <div className="flex font-normal text-gray-500">apriljanegarfin.stacktrek@gmail.com</div>
                       </div>
                     </td>
                     {/* address column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Sibalom, Antique
                     </td>
                     {/* specific role column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Trainer
                     </td>
                     {/* status column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       <div className="flex items-center text-red-500">
                         For Pooling
                       </div>
                     </td>
                     {/* date onboard column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       February 18, 2023
                     </td>
                     {/* skills column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Java, HTML, CSS
                     </td>
                     {/* available schedule column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       M W F - 1:00  -4:00
                     </td>
                     {/* action column */}
-                    <td className="w-36 px-2 py-4 h-20 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
+                    <td className="w-36 px-2 py-4 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' /></a>
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={github} alt="/" className='w-[1.5rem] mr-1 mb-1' /></a>
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={linkedin} alt="/" className='w-[1.7rem] mr-1 mb-1' /></a>
@@ -212,46 +212,46 @@ const trainers = () => {
                       </div>
                     </td>
                     {/* name column */}
-                    <td scope="row" className="flex items-center px-2 py-4 h-20 text-gray-900  dark:text-white">
+                    <td scope="row" className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white">
                       <div className="relative w-[2.6rem] my-[2.3rem]">
-                        <Image className="max-w-full h-10 rounded-full" src={boy1} alt="profile image" />
+                        <Image className="w-auto h-9 rounded-full" src={boy1} alt="profile image" />
                         {/* profile indicator */}
-                        <span className="top-7 left-7 absolute  w-3.5 h-3.5 bg-[#C0C0C0] border-2 border-white dark:border-gray-800 rounded-full"></span>
+                        <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#C0C0C0] border-2 border-white dark:border-gray-800 rounded-full"></span>
                       </div>
-                      <div className="pl-3">
+                      <div className="pl-3 pt-2">
                         <div className="text-base font-semibold">Miguel Edvenson Jay (Ed)</div>
                         <div className="font-normal text-gray-500">09xxxxxxxxx</div>
                         <div className="flex font-normal text-gray-500">edvensonjaymiguel.stacktrek@gmail.com</div>
                       </div>
                     </td>
                     {/* address column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       San Jose, Antique
                     </td>
                     {/* specific role column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Trainer
                     </td>
                     {/* status column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       <div className="flex items-center text-green-500">
                         Active
                       </div>
                     </td>
                     {/* date onboard column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       February 18, 2023
                     </td>
                     {/* skills column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Java, HTML, CSS
                     </td>
                     {/* available schedule column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       M W F - 1:00  -4:00
                     </td>
                     {/* action column */}
-                    <td className="w-36 px-2 py-4 h-20 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
+                    <td className="w-36 px-2 py-4 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' /></a>
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={github} alt="/" className='w-[1.5rem] mr-1 mb-1' /></a>
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={linkedin} alt="/" className='w-[1.7rem] mr-1 mb-1' /></a>
@@ -268,46 +268,46 @@ const trainers = () => {
                       </div>
                     </td>
                     {/* name column */}
-                    <td scope="row" className="flex items-center px-2 py-4 h-20 text-gray-900  dark:text-white">
+                    <td scope="row" className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white">
                       <div className="relative w-[2.6rem] my-[2.3rem]">
-                        <Image className="max-w-full h-10 rounded-full" src={girl1} alt="profile image" />
+                        <Image className="w-auto h-9 rounded-full" src={girl1} alt="profile image" />
                         {/* profile indicator */}
-                        <span className="top-7 left-7 absolute  w-3.5 h-3.5 bg-[#D4AF37] border-2 border-white dark:border-gray-800 rounded-full"></span>
+                        <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#D4AF37] border-2 border-white dark:border-gray-800 rounded-full"></span>
                       </div>
-                      <div className="pl-3">
+                      <div className="pl-3 pt-2">
                         <div className="text-base font-semibold">Sabino Rustia (Mutya)</div>
                         <div className="font-normal text-gray-500">09xxxxxxxxx</div>
                         <div className="flex font-normal text-gray-500">rustiasabino.stacktrek@gmail.com</div>
                       </div>
                     </td>
                     {/* address column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Sibalom, Antique
                     </td>
                     {/* specific role column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Trainer
                     </td>
                     {/* status column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       <div className="flex items-center text-green-500">
                         Active
                       </div>
                     </td>
                     {/* date onboard column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       February 18, 2023
                     </td>
                     {/* skills column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       Java, HTML, CSS
                     </td>
                     {/* available schedule column */}
-                    <td className="px-2 py-4 h-20">
+                    <td className="px-2 py-4 h-16">
                       M W F - 1:00  -4:00
                     </td>
                     {/* action column */}
-                    <td className="w-36 px-2 py-4 h-20 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
+                    <td className="w-36 px-2 py-4 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' /></a>
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={github} alt="/" className='w-[1.5rem] mr-1 mb-1' /></a>
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Image src={linkedin} alt="/" className='w-[1.7rem] mr-1 mb-1' /></a>

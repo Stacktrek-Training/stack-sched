@@ -430,7 +430,7 @@ const trainers = () => {
                             </div>
 
                             {/* available day dropdown button */}
-                            <div className='w-full'>
+                            <div className='w-full relative'>
                               <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Available Day :</label>
                               <button id="availableDayButton" data-dropdown-toggle="availableDay" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
                                 Select Days
@@ -440,7 +440,7 @@ const trainers = () => {
                               </button>
 
                               {/* available day dropdown content */}
-                              <div id="availableDay" className="z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-52">
+                              <div id="availableDay" className="w-full z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700">
                                 <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="availableDayButton">
                                   <li>
                                     <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">

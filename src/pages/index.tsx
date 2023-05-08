@@ -20,10 +20,10 @@ export default function Home() {
           </ul>
 
           {/* all main cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-lg md:p- dark:bg-gray-800 h-full w-full mb-4" id="stats" role="tabpanel" aria-labelledby="stats-tab" style={{ height: "74%" }}>
+          <div className="overflow-auto grid grid-cols-1 md:grid-cols-3 gap-8 rounded-lg md:p- dark:bg-gray-800 h-full w-full mb-4" id="stats" role="tabpanel" aria-labelledby="stats-tab" style={{ height: "74%" }}>
 
             {/* total graduates card */}
-            <div className="mb-1 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
+            <div className="mb-1 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full min-h-[20rem]">
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-center text-[1rem] text-gray-800"><th>Total Graduates</th></tr>
@@ -49,7 +49,7 @@ export default function Home() {
             </div>
 
             {/* active trainers card */}
-            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
+            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full min-h-[20rem]">
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-lg text-gray-800 border-b">
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
 
             {/* for pooling trainers card */}
-            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full">
+            <div className="mb-2 overflow-auto block w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 h-full min-h-[20rem]">
               <table className=" dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full max-h-full">
                 <thead className='sticky top-0 z-10 bg-gray-100 h-12'>
                   <tr className="font-bold text-lg text-gray-800 border-b">

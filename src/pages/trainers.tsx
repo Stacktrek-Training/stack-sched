@@ -333,7 +333,7 @@ const trainers = () => {
                     {/* title */}
                     <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white text-center">Register a Trainer</h3>
                     {/* form */}
-                    <form className="space-y-4" action="#">
+                    <form className="space-y-4" action="#" autoComplete='off'>
                       <div className="grid gap-12 mb-4 md:grid-cols-2">
                         <div>
                           {/* personal details section */}
@@ -560,7 +560,7 @@ const trainers = () => {
                     {/* title */}
                     <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white text-center">Update Trainer Details</h3>
                     {/* form */}
-                    <form className="space-y-4" action="#">
+                    <form className="space-y-4" action="#" autoComplete='off'>
                       <div className="grid gap-12 mb-4 md:grid-cols-2">
                         <div>
                           {/* personal details section */}

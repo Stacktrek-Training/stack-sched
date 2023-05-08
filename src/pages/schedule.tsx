@@ -235,7 +235,7 @@ const schedule = () => {
                 {/* title */}
                 <h3 className="mb-8 text-xl font-medium text-gray-900 dark:text-white text-center">Add Shift</h3>
                 {/* form */}
-                <form className="space-y-6" action="#">
+                <form className="space-y-6" action="#" autoComplete='off'>
 
                   <div className="grid gap-12 mb-4 md:grid-cols-2 w-full">
                     {/* trainers dropdown button */}
@@ -419,7 +419,7 @@ const schedule = () => {
                 {/* title */}
                 <h3 className="mb-8 text-xl font-medium text-gray-900 dark:text-white text-center">Edit Trainer Shift</h3>
                 {/* form */}
-                <form className="space-y-6" action="#">
+                <form className="space-y-6" action="#" autoComplete='off'>
 
                   <div className="grid gap-12 mb-4 md:grid-cols-2 w-full">
                     {/* trainers dropdown button */}

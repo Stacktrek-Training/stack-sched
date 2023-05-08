@@ -126,7 +126,7 @@ const schedule = () => {
                       <Image src={girl2} alt="user profile" className='w-9 h-9 rounded-full mr-[-0.5rem]' />
                     </div>
                     {/* profile hover */}
-                    <div data-popover id="popover-bottom" role="tooltip" className="absolute z-10 invisible inline-block w-[40rem] text-sm text-gray-500 transition-opacity duration-100 bg-gray-200 border-[#D55458] rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 border-t-[0.15rem]">
+                    <div data-popover id="popover-bottom" role="tooltip" className="absolute z-10 invisible inline-block xl:w-[28rem] text-sm text-gray-500 transition-opacity duration-100 bg-gray-200 border-[#D55458] rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 border-t-[0.15rem]">
                       <AvatarHover />
                     </div>
                   </td>

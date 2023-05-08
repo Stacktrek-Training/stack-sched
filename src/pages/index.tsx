@@ -6,11 +6,11 @@ import discord from '../assets/logo/discord.svg'
 
 export default function Home() {
   return (
-    <div className="overflow-y-auto h-screen w-screen bg-white dark:bg-gray-800 dark:border-gray-700 text-sm">
+    <div className="h-screen min-h-screen w-screen bg-white dark:bg-gray-800 dark:border-gray-700 text-sm">
       {/* top navigation bar */}
       <Navbar />
 
-      <div className="mt-2 h-full w-full text-gray-90 dark:text-white" style={{ height: "88%" }}>
+      <div className="mt-2 h-full w-full text-gray-90 dark:text-white" style={{ height: "80%" }}>
         {/* dashboard content */}
         <div className="w-full h-full p-4 bg-white dark:bg-gray-800 dark:border-gray-700">
           <ul className="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
@@ -108,7 +108,7 @@ export default function Home() {
           </div>
 
           {/* sub cards */}
-          <div className='h-fit w-full'>
+          <div className='h-fit w-full xl:mt-8'>
             <dl className="grid max-w-screen grid-cols-2 gap-6 p-2 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-4 dark:text-white sm:p-8">
               {/* graduated class card */}
               <div className="flex flex-col items-center justify-center">

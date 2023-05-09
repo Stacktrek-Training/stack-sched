@@ -482,34 +482,13 @@ const trainers = () => {
 
                             {/* certification */}
                             <div className='relative'>
-                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Certification </label>
-                              <button id="certButton" data-dropdown-toggle="cert" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
-                                Select Certification
-                                <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                              </button>
-
-                              {/* certification dropdown content */}
-                              <div id="cert" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-full">
-                                <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="certButton">
-                                  <li>
-                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Bronze</label>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Silver</label>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Gold</label>
-                                    </div>
-                                  </li>
-                                </ul>
-                              </div>
+                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Certification</label>
+                              <select className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none h-[2.65rem]">
+                                <option value="">Select Certification</option>
+                                <option value="Bronze">Bronze</option>
+                                <option value="Silver">Silver</option>
+                                <option value="Gold">Gold</option>
+                              </select>
                             </div>
                           </div>
 
@@ -607,7 +586,7 @@ const trainers = () => {
 
                               {/* status */}
                               <div className='relative'>
-                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Status</label>
                                 <select className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none h-[2.65rem]">
                                   <option value="">Select Status</option>
                                   <option value="Active">Active</option>
@@ -692,34 +671,13 @@ const trainers = () => {
 
                             {/* certification */}
                             <div className='relative'>
-                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Certification </label>
-                              <button id="certButton" data-dropdown-toggle="cert-edit" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
-                                Select Certification
-                                <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                              </button>
-
-                              {/* certification dropdown content */}
-                              <div id="cert-edit" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-full">
-                                <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="certButton">
-                                  <li>
-                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Bronze</label>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Silver</label>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                      <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Gold</label>
-                                    </div>
-                                  </li>
-                                </ul>
-                              </div>
+                              <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Certification</label>
+                              <select className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none h-[2.65rem]">
+                                <option value="">Select Certification</option>
+                                <option value="Bronze">Bronze</option>
+                                <option value="Silver">Silver</option>
+                                <option value="Gold">Gold</option>
+                              </select>
                             </div>
                           </div>
 

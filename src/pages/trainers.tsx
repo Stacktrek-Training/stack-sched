@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'flowbite'
 import Image from 'next/image';
 import Navbar from '../components/Navbar'
@@ -13,7 +13,74 @@ import boy1 from '../assets/img/boy1.jpg'
 import girl1 from '../assets/img/girl1.jpg'
 import girl2 from '../assets/img/girl2.jpg'
 
+interface FormData {
+  first_name: string
+  last_name: string
+  nickname: string
+  address: string 
+  mobile_no: string
+  email: string
+  github: string
+  linkedin: string
+  discord_id: string
+  active_status: boolean
+  skill: string
+  role: string
+  avail_day: string[]
+  avail_time: string
+  date_onboard: string
+}
+
+
 const trainers = () => {
+  const [form, setForm] = useState<FormData>({first_name: '', last_name: '', nickname: '', address: '', mobile_no: '', email: '',
+   github: '', linkedin: '', discord_id: '', active_status: false, skill: '', role: '', avail_day: [], avail_time: '', date_onboard: '' })
+
+  async function create(data: FormData){
+    try {
+      fetch('http://localhost:3000/api/addTrainer', {
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      }).then(() => setForm({first_name: '', last_name: '', nickname: '', address: '', mobile_no: '', email: '',
+      github: '', linkedin: '', discord_id: '', active_status: false, skill: '', role: '', avail_day: [], avail_time: '', date_onboard: ''}))
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, checked} = event.target
+    //setForm(form => ({...form, avail_day: checked ? [...form.avail_day, name] : form.avail_day.filter(day => day !== name)}))
+    if (checked){
+      setForm (form => ({...form, avail_day: [...form.avail_day, name]}))
+    }
+    else{
+      setForm (form => ({...form, avail_day: form.avail_day.filter(day => day !== name)}))
+    }
+  }
+  //for availTime
+  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //const { value } = event.target
+    //setForm((form => ({...form, avail_time: value})))
+    setForm({...form, avail_time: event.target.value})
+  }
+
+  const handleSubmit = async (data: FormData) => {
+    try{
+      create(data)
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+
+  const handleDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({...form, date_onboard: event.target.value})
+  }
+  
   return (
     <div className='md:h-[67.5rem] h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
@@ -333,7 +400,10 @@ const trainers = () => {
                   {/* title */}
                   <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white text-center">Register a Trainer</h3>
                   {/* form */}
-                  <form className="space-y-4" action="#">
+                  <form onSubmit={e => {
+                    e.preventDefault() //page wont referesh after submit
+                    handleSubmit(form) //handler for submit, creates a row in table
+                  }}className="space-y-4" action="#">
                     <div className="grid gap-12 mb-4 md:grid-cols-2">
                       <div>
                         {/* personal details section */}
@@ -341,24 +411,34 @@ const trainers = () => {
                         <div className="grid gap-6 mb-4 md:grid-cols-3">
                           {/* first name input */}
                           <div>
-                            <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='First name' required />
+                            <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='First name' required 
+                            value = {form.first_name}
+                            onChange={e => setForm({...form, first_name: e.target.value})}/>
                           </div>
                           {/* last name input */}
                           <div>
-                            <input type="text" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Last name' required />
+                            <input type="text" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Last name' required 
+                            value = {form.last_name}
+                            onChange={e => setForm({...form, last_name: e.target.value})}/>
                           </div>
                           {/* nickname input */}
                           <div>
-                            <input type="text" id="nickname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Nickname' required />
+                            <input type="text" id="nickname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Nickname' required 
+                            value = {form.nickname}
+                            onChange={e => setForm({...form, nickname: e.target.value})}/>
                           </div>
                         </div>
                         {/* address input */}
                         <div>
-                          <input type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="Address" required />
+                          <input type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="Address" required 
+                          value = {form.address}
+                          onChange={e => setForm({...form, address: e.target.value})}/>
                         </div>
                         {/* mobile number input */}
                         <div>
-                          <input type="number" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile number" pattern="[0-9]{11}" required />
+                          <input type="number" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile number" pattern="[0-9]{11}" 
+                          value = {form.mobile_no}
+                          onChange={e => setForm({...form, mobile_no: e.target.value})}/>
                         </div>
                       </div>
                       <div>
@@ -367,17 +447,23 @@ const trainers = () => {
                         {/* e-mail input */}
                         <div className='inline-flex w-full mb-4'>
                           <Image src={gmail} alt="/" className='w-[1.6rem] mr-1 mb-1' />
-                          <input type="text" id="gmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="E-mail address" required />
+                          <input type="text" id="gmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="E-mail address"  
+                          value = {form.email}
+                          onChange={e => setForm({...form, email: e.target.value})}/>
                         </div>
                         {/* discord input */}
                         <div className='inline-flex w-full mb-4'>
                           <Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' />
-                          <input type="text" id="discord" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Discord ID" required />
+                          <input type="text" id="discord" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Discord ID"  
+                          value = {form.discord_id}
+                          onChange={e => setForm({...form, discord_id: e.target.value})}/>
                         </div>
                         {/* linkedin input */}
                         <div className='inline-flex w-full mb-4'>
                           <Image src={linkedin} alt="/" className='w-[1.6rem] mr-1 mb-1' />
-                          <input type="text" id="linkedin" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Linkedin profile link" required />
+                          <input type="text" id="linkedin" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Linkedin profile link"  
+                          value = {form.linkedin}
+                          onChange={e => setForm({...form, linkedin: e.target.value})}/>
                         </div>
                       </div>
                     </div>
@@ -391,22 +477,30 @@ const trainers = () => {
                             {/* date onboard */}
                             <div>
                               <h1 className="block mb-2 text-sm font-sm text-gray-900 dark:text-white">Date Onboard:</h1>
-                              <input type="date" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                              <input type="date" 
+                              id="first_name" 
+                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              onChange={(handleDate)}/>
                             </div>
 
                             {/* status */}
                             <div>
                               <h1 className="block mb-2 text-sm font-sm text-gray-900 dark:text-white">Status</h1>
-                              <button id="dropdownFormButton" data-dropdown-toggle="dropdown2" className="w-full bg-gray-50 focus:ring-2 focus:outline-none focus:ring-blue-500 border border-gray-300 text-gray-900 text-sm rounded-lg px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select<svg className="w-full h-4 ml-28" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                              <button id="dropdownFormButton" data-dropdown-toggle="dropdown2" className="w-full bg-gray-50 focus:ring-2 focus:outline-none focus:ring-blue-500 border border-gray-300 text-gray-900 text-sm rounded-lg px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"
+                              >Select<svg className="w-full h-4 ml-28" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                              </button>
 
                               {/* status dropdown content */}
                               <div id="dropdown2" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700">
                                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownFormButton">
                                   <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Active</a>
+                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white" 
+                                    onClick={() => setForm({...form, active_status: true})}>Active</a>
                                   </li>
                                   <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">For Pooling</a>
+                                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white" 
+                                    onClick={() => setForm({...form, active_status: false})}>For Pooling</a>
                                   </li>
                                 </ul>
                               </div>
@@ -418,7 +512,10 @@ const trainers = () => {
                             <div className="grid gap-6 mb-4 md:grid-cols-2">
                               <div>
                                 <label className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Time : </label>
-                                <input className="w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time" />
+                                <input className="w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+                                type="time"
+                                //value={form.avail_time}
+                                onChange={handleTimeChange} />
                               </div>
 
                               {/* available day dropdown button */}
@@ -431,37 +528,49 @@ const trainers = () => {
                                   <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
                                     <li>
                                       <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                        <input id="checkbox-item-4" type="checkbox" name="monday" 
+                                        value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                        onChange={handleCheckboxChange}/>
                                         <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Monday</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                        <input id="checkbox-item-4" type="checkbox" name="tuesday" 
+                                        value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                        onChange={handleCheckboxChange}/>
                                         <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Tuesday</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                        <input id="checkbox-item-4" type="checkbox" name="wednesday" 
+                                        value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                        onChange={handleCheckboxChange}/>
                                         <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Wednesday</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                        <input id="checkbox-item-4" type="checkbox" name="thursday" 
+                                        value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                        onChange={handleCheckboxChange}/>
                                         <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Thursday</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                        <input id="checkbox-item-4" type="checkbox" name="friday" 
+                                        value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                        onChange={handleCheckboxChange}/>
                                         <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Friday</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                        <input id="checkbox-item-4" type="checkbox" name="saturday" 
+                                        value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                        onChange={handleCheckboxChange}/>
                                         <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Saturday</label>
                                       </div>
                                     </li>
@@ -480,7 +589,7 @@ const trainers = () => {
                             <h1 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Skills Related</h1>
                             {/* expertise input */}
                             <div className='inline-flex w-full mb-4'>
-                              <input type="text" id="expertise" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Expertise" required />
+                              <input type="text" id="expertise" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Expertise"  />
                             </div>
                           </div>
 
@@ -510,7 +619,7 @@ const trainers = () => {
 
                         {/* skills input */}
                         <div className='inline-flex w-full'>
-                          <input type="text" id="skills" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Skills" required />
+                          <input type="text" id="skills" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Skills"  />
                         </div>
                       </div>
                     </div>
@@ -624,7 +733,9 @@ const trainers = () => {
                             <div className="grid gap-6 mb-4 md:grid-cols-2">
                               <div>
                                 <label className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Time : </label>
-                                <input className="w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time" />
+                                <input className="w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+                                type="time" 
+                                />
                               </div>
 
                               {/* available day dropdown button */}

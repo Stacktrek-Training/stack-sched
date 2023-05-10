@@ -21,6 +21,8 @@ model trainers {
   active_status Boolean   @default(true)
   skill         String?
   role          String?
-  avail_day     String?
+  avail_day     String[]
   avail_time    DateTime? @db.Time(6)
+  discord_id    String?
+  date_onboard  DateTime? @db.Date
 }

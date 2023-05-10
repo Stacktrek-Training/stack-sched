@@ -83,6 +83,14 @@ const trainers = () => {
   const handleDate = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, date_onboard: event.target.value })
   }
+
+  // success message in add trainer form
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleInsertData = () => {
+    setSuccessMessage("Trainer added successfully!");
+  }
+
   return (
     <div className='min-h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
@@ -607,7 +615,8 @@ const trainers = () => {
 
                       {/* division for submit button */}
                       <div className='mt-4 text-center'>
-                        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+                        {successMessage && <p className='mb-2 text-green-600 font-semibold text-center w-full'>{successMessage}</p>}
+                        <button onClick={handleInsertData} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
                       </div>
                     </form>
                   </div>

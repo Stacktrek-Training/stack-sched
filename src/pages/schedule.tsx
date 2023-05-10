@@ -241,35 +241,10 @@ const schedule = () => {
                     {/* trainers dropdown button */}
                     <div className='relative'>
                       <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Select Trainers </label>
-                      <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover-edit" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between" type="button">
-                        Trainers
-                        <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                      </button>
-
-                      {/* trainers dropdown content */}
-                      <div id="dropdownBgHover-edit" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-full">
-                        <table className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
-                          <thead>
-                            <tr>
-                              <th>
-
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td className='py-2'>
-                                <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                  <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                  <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Garfin, April Jane</label>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                      <select id="availableDaySelect" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none">
+                        <option value="">Select</option>
+                        <option value="Garfin, April Jane">Garfin, April Jane</option>
+                      </select>
                     </div>
 
                     {/* repeat every */}

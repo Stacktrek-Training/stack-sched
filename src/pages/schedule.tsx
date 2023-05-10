@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '../components/Navbar'
 import Search from '../components/Search';
 import ButtonsShiftTable from '../components/ButtonsShiftTable'
+import AvatarHover from '@/components/AvatarHover';
 import editIcon from '../assets/ico/edit.svg'
 import profile from '../assets/img/cyber-punk.jpeg'
 import boy1 from '../assets/img/boy1.jpg'
@@ -14,16 +15,15 @@ import girl2 from '../assets/img/girl2.jpg'
 
 const schedule = () => {
   return (
-    <div className='md:h-[67.5rem] h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
+    <div className='pb-4 h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
       <Navbar />
 
       {/* tabs and table */}
-      <div className='pr-5 pl-5 max-w-screen'>
-        <div className='p-3 flex-wrap'>
-
+      <div className='pr-6 pl-5 max-w-screen lg:mt-4'>
+        <div className='p-3 grid grid-cols-1 md:grid-cols-2 gap-4 justify-start md:justify-end'>
           {/* search bar with filter dropdown */}
-          <div className="inline-flex w-full mt-2 mr-5">
+          <div className="inline-flex w-full px-1 mr-5">
             <button
               id="dropdown-button"
               data-dropdown-toggle="dropdown"
@@ -73,60 +73,47 @@ const schedule = () => {
               </ul>
             </div>
             <Search />
-            <ButtonsShiftTable />
           </div>
+          <ButtonsShiftTable />
         </div>
 
         {/* trainers table */}
-        <div className="relative shadow-md sm:rounded-lg mt-2 border-l-4 border-l-[#8329F5] h-[58rem]">
+        <div className="relative shadow-md sm:rounded-lg border-l-4 border-l-[#8329F5] h-full overflow-y-auto lg:mt-4" style={{ height: "calc(100vh - 190px)" }}>
           <div className="h-full overflow-y-auto">
             <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
               {/* header */}
-              <thead className="sticky top-0 z-20 text-sm text-regu text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+              <thead className="sticky top-0 z-20 text-sm text-regular text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                  <th scope="col" className="p-4">
-                    <div className="flex items-center">
-                      <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                      <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
-                    </div>
-                  </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Shift Time
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Monday
                   </th>
-                  <th scope="col" className="px-6 py-3 ">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Tuesday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Wednesday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Thursday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Friday
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem]">
                     Saturday
                   </th>
-                  <th scope="col" className="px-6 py-3 ">
+                  <th scope="col" className="px-6 py-3 text-[0.8rem] ">
                     Action
                   </th>
                 </tr>
               </thead>
               {/* data */}
-              <tbody className='overflow-auto'>
+              <tbody>
                 {/* first row */}
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  {/* checkbox */}
-                  <td className="p-4">
-                    <div className="flex items-center">
-                      <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                      <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                    </div>
-                  </td>
                   {/* time column */}
                   <td className="px-6 py-2">
                     9:00 AM - 11:00 AM
@@ -139,39 +126,8 @@ const schedule = () => {
                       <Image src={girl2} alt="user profile" className='w-9 h-9 rounded-full mr-[-0.5rem]' />
                     </div>
                     {/* profile hover */}
-                    <div data-popover id="popover-bottom" role="tooltip" className="absolute z-10 invisible inline-block w-[40rem] text-sm text-gray-500 transition-opacity duration-100 bg-gray-200 border-[#D55458] rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 border-t-[0.15rem]">
-
-                      {/* popover card header */}
-                      <div className="w-full inline-flex px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-                        <h3 className="font-semibold text-gray-900 dark:text-white">Banquillo, Rieza Marie</h3>
-                      </div>
-                      {/* popover card body */}
-
-                      <div className="px-3 py-3 inline-flex">
-                        {/* history og schedule */}
-                        <div className='bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 p-3 w-96 mr-4'>
-                          <div className='w-full'>
-                            <h2 className='text-center font-semibold text-gray-900'>History of Schedule</h2>
-                          </div>
-                        </div>
-
-                        {/* side cards */}
-                        <div className="overflow-auto block w-2/4 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 max-h-full">
-                          <dl className="grid max-w-screen max-h-screen grid-cols-1 grid-rows-2 p-2 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white">
-                            {/* average time per week card */}
-                            <div className="flex flex-col items-center justify-center w-full mt-[-1.5rem]">
-                              <dt className="text-3xl font-extrabold text-[#EF8134]">19</dt>
-                              <dd className="text-center text-gray-500 dark:text-gray-400">Average time per week</dd>
-                            </div>
-                            {/* total number of hours card */}
-                            <div className="w-full flex flex-col items-center justify-center mt-2">
-                              <dt className="mb-2 text-3xl font-extrabold text-[#EF8134]">8</dt>
-                              <dd className="text-center text-gray-500 dark:text-gray-400">Total number of hours</dd>
-                            </div>
-                          </dl>
-                        </div>
-                      </div>
-                      <div data-popper-arrow></div>
+                    <div data-popover id="popover-bottom" role="tooltip" className="absolute z-10 invisible inline-block xl:w-[28rem] text-sm text-gray-500 transition-opacity duration-100 bg-gray-200 border-[#D55458] rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 border-t-[0.15rem]">
+                      <AvatarHover />
                     </div>
                   </td>
 
@@ -222,12 +178,6 @@ const schedule = () => {
 
                 {/* Second row */}
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-2">
-                    <div className="flex items-center">
-                      <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                      <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                    </div>
-                  </td>
                   <td className="px-6 py-2">
                     10:00 AM - 11:00 AM
                   </td>
@@ -285,61 +235,30 @@ const schedule = () => {
                 {/* title */}
                 <h3 className="mb-8 text-xl font-medium text-gray-900 dark:text-white text-center">Add Shift</h3>
                 {/* form */}
-                <form className="space-y-6" action="#">
+                <form className="space-y-6" action="#" autoComplete='off'>
 
-                  <div className="grid gap-12 mb-4 md:grid-cols-2">
+                  <div className="grid gap-12 mb-4 md:grid-cols-2 w-full">
                     {/* trainers dropdown button */}
-                    <div>
+                    <div className='relative'>
                       <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Select Trainers </label>
-                      <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Trainers<svg className="w-4 h-4 ml-72" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-
-                      {/* trainers dropdown content */}
-                      <div id="dropdownBgHover" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-96">
-                        <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
-                          <li>
-                            <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                              <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                              <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Garfin, April Jane</label>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
+                      <select id="availableDaySelect" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none">
+                        <option value="">Select</option>
+                        <option value="Garfin, April Jane">Garfin, April Jane</option>
+                      </select>
                     </div>
 
                     {/* repeat every */}
                     <div>
                       <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Repeat every </label>
-                      <div className='mt-1'>
+                      <div className='mt-1 flex'>
                         <input className="w-20 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 border-none ml-[0.01rem] dark:focus:ring-blue-800" type="number" placeholder='1' />
-                        <button id="dropdownRepeatButton" data-dropdown-toggle="dropdownRepeat" className="ml-4 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">week<svg className="w-4 h-4 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                        <div id="dropdownRepeat" className="border z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-28">
-                          <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
-                            {/* day */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">day</label>
-                              </div>
-                            </li>
-                            {/* week */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">week</label>
-                              </div>
-                            </li>
-                            {/* month */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">month</label>
-                              </div>
-                            </li>
-                            {/* year */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">year</label>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
+                        <select id="availableDaySelect" className="ml-[-0.4rem] text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-28 flex justify-between border-none">
+                          <option value="">Select</option>
+                          <option value="daily">daily</option>
+                          <option value="weekly">weekly</option>
+                          <option value="monthly">monthly</option>
+                          <option value="yearly">yearly</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -464,61 +383,30 @@ const schedule = () => {
                 {/* title */}
                 <h3 className="mb-8 text-xl font-medium text-gray-900 dark:text-white text-center">Edit Trainer Shift</h3>
                 {/* form */}
-                <form className="space-y-6" action="#">
+                <form className="space-y-6" action="#" autoComplete='off  '>
 
-                  <div className="grid gap-12 mb-4 md:grid-cols-2">
+                  <div className="grid gap-12 mb-4 md:grid-cols-2 w-full">
                     {/* trainers dropdown button */}
-                    <div>
+                    <div className='relative'>
                       <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Select Trainers </label>
-                      <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Trainers<svg className="w-4 h-4 ml-72" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-
-                      {/* trainers dropdown content */}
-                      <div id="dropdownBgHover" className="items-center z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-96">
-                        <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
-                          <li>
-                            <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                              <input id="checkbox-item-4" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                              <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Garfin, April Jane</label>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
+                      <select id="availableDaySelect" className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none">
+                        <option value="">Select</option>
+                        <option value="Garfin, April Jane">Garfin, April Jane</option>
+                      </select>
                     </div>
 
                     {/* repeat every */}
                     <div>
                       <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Repeat every </label>
-                      <div className='mt-1'>
+                      <div className='mt-1 flex'>
                         <input className="w-20 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 border-none ml-[0.01rem] dark:focus:ring-blue-800" type="number" placeholder='1' />
-                        <button id="dropdownRepeatButton" data-dropdown-toggle="dropdownRepeat" className="ml-4 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">week<svg className="w-4 h-4 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                        <div id="dropdownRepeat" className="border z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 w-28">
-                          <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
-                            {/* day */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">day</label>
-                              </div>
-                            </li>
-                            {/* week */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">week</label>
-                              </div>
-                            </li>
-                            {/* month */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">month</label>
-                              </div>
-                            </li>
-                            {/* year */}
-                            <li>
-                              <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <label htmlFor="checkbox-item-4" className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">year</label>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
+                        <select id="availableDaySelect" className="ml-[-0.4rem] text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-28 flex justify-between border-none">
+                          <option value="">Select</option>
+                          <option value="daily">daily</option>
+                          <option value="weekly">weekly</option>
+                          <option value="monthly">monthly</option>
+                          <option value="yearly">yearly</option>
+                        </select>
                       </div>
                     </div>
                   </div>

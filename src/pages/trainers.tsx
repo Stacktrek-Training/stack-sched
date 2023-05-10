@@ -415,7 +415,8 @@ const trainers = () => {
                             <div>
                               <input type="text" id="firstname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder='First name'
-                                maxLength={20} required
+                                maxLength={20}
+                                required
                                 value={form.first_name}
                                 onChange={e => setForm({ ...form, first_name: e.target.value })} />
                             </div>
@@ -425,7 +426,8 @@ const trainers = () => {
                                 id="lastname"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder='Last name'
-                                maxLength={40} required
+                                maxLength={40}
+                                required
                                 value={form.last_name}
                                 onChange={e => setForm({ ...form, last_name: e.target.value })} />
                             </div>
@@ -433,14 +435,15 @@ const trainers = () => {
                             <div>
                               <input type="text" id="nickname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder='Nickname'
-                                maxLength={10} required
+                                maxLength={10}
+                                required
                                 value={form.nickname}
                                 onChange={e => setForm({ ...form, nickname: e.target.value })} />
                             </div>
                           </div>
                           {/* address input */}
                           <div>
-                            <input type="text" id="address" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="Address" maxLength={70} required
+                            <input type="text" id="address" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="Address" minLength={10} maxLength={70} required
                               value={form.address}
                               onChange={e => setForm({ ...form, address: e.target.value })} />
                           </div>
@@ -494,7 +497,9 @@ const trainers = () => {
                               {/* shift time */}
                               <div>
                                 <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Shift Time</label>
-                                <input className="mt-1 w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time"
+                                <input className="mt-1 w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                  required
+                                  type="time"
                                   onChange={handleTimeChange} />
                               </div>
                             </div>
@@ -567,7 +572,7 @@ const trainers = () => {
                             {/* status */}
                             <div>
                               <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                              <select className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none h-[2.65rem]">
+                              <select className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none h-[2.65rem]" required>
                                 <option value="">Select Status</option>
                                 <option value="Active">Active</option>
                                 <option value="For Pooling">For Pooling</option>

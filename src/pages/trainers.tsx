@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'flowbite'
 import Image from 'next/image';
 import Navbar from '../components/Navbar'
@@ -13,7 +13,76 @@ import boy1 from '../assets/img/boy1.jpg'
 import girl1 from '../assets/img/girl1.jpg'
 import girl2 from '../assets/img/girl2.jpg'
 
+interface FormData {
+  first_name: string
+  last_name: string
+  nickname: string
+  address: string
+  mobile_no: string
+  email: string
+  github: string
+  linkedin: string
+  discord_id: string
+  active_status: boolean
+  skill: string
+  role: string
+  avail_day: string[]
+  avail_time: string
+  date_onboard: string
+}
+
 const trainers = () => {
+  const [form, setForm] = useState<FormData>({
+    first_name: '', last_name: '', nickname: '', address: '', mobile_no: '', email: '',
+    github: '', linkedin: '', discord_id: '', active_status: false, skill: '', role: '', avail_day: [], avail_time: '', date_onboard: ''
+  })
+
+  async function create(data: FormData) {
+    try {
+      fetch('http://localhost:3000/api/addTrainer', {
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      }).then(() => setForm({
+        first_name: '', last_name: '', nickname: '', address: '', mobile_no: '', email: '',
+        github: '', linkedin: '', discord_id: '', active_status: false, skill: '', role: '', avail_day: [], avail_time: '', date_onboard: ''
+      }))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target
+    //setForm(form => ({...form, avail_day: checked ? [...form.avail_day, name] : form.avail_day.filter(day => day !== name)}))
+    if (checked) {
+      setForm(form => ({ ...form, avail_day: [...form.avail_day, name] }))
+    }
+    else {
+      setForm(form => ({ ...form, avail_day: form.avail_day.filter(day => day !== name) }))
+    }
+  }
+  //for availTime
+  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //const { value } = event.target
+    //setForm((form => ({...form, avail_time: value})))
+    setForm({ ...form, avail_time: event.target.value })
+  }
+
+  const handleSubmit = async (data: FormData) => {
+    try {
+      create(data)
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, date_onboard: event.target.value })
+  }
   return (
     <div className='min-h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700'>
       {/* top navigation bar */}
@@ -333,7 +402,10 @@ const trainers = () => {
                     {/* title */}
                     <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white text-center">Register a Trainer</h3>
                     {/* form */}
-                    <form className="space-y-4" action="#" autoComplete='off'>
+                    <form onSubmit={e => {
+                      e.preventDefault() //page wont referesh after submit
+                      handleSubmit(form) //handler for submit, creates a row in table
+                    }} className="space-y-4" action="#" autoComplete='off'>
                       <div className="grid gap-12 mb-4 md:grid-cols-2">
                         <div>
                           {/* personal details section */}
@@ -341,24 +413,42 @@ const trainers = () => {
                           <div className="grid gap-6 mb-4 md:grid-cols-3">
                             {/* first name input */}
                             <div>
-                              <input type="text" id="firstname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='First name' maxLength={20} required />
+                              <input type="text" id="firstname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder='First name'
+                                maxLength={20} required
+                                value={form.first_name}
+                                onChange={e => setForm({ ...form, first_name: e.target.value })} />
                             </div>
                             {/* last name input */}
                             <div>
-                              <input type="text" id="lastname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Last name' maxLength={40} required />
+                              <input type="text"
+                                id="lastname"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder='Last name'
+                                maxLength={40} required
+                                value={form.last_name}
+                                onChange={e => setForm({ ...form, last_name: e.target.value })} />
                             </div>
                             {/* nickname input */}
                             <div>
-                              <input type="text" id="nickname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Nickname' maxLength={10} required />
+                              <input type="text" id="nickname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder='Nickname'
+                                maxLength={10} required
+                                value={form.nickname}
+                                onChange={e => setForm({ ...form, nickname: e.target.value })} />
                             </div>
                           </div>
                           {/* address input */}
                           <div>
-                            <input type="text" id="address" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="Address" maxLength={70} required />
+                            <input type="text" id="address" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="Address" maxLength={70} required
+                              value={form.address}
+                              onChange={e => setForm({ ...form, address: e.target.value })} />
                           </div>
                           {/* mobile number input */}
                           <div>
-                            <input type="tel" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile number (09)" pattern="[0-9]{11}" maxLength={11} required />
+                            <input type="tel" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile number (09)" pattern="[0-9]{11}" maxLength={11} required
+                              value={form.mobile_no}
+                              onChange={e => setForm({ ...form, mobile_no: e.target.value })} />
                           </div>
                         </div>
                         <div>
@@ -367,17 +457,23 @@ const trainers = () => {
                           {/* e-mail input */}
                           <div className='inline-flex w-full mb-4'>
                             <Image src={gmail} alt="/" className='w-[1.6rem] mr-1 mb-1' />
-                            <input type="email" id="gmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="E-mail address" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' maxLength={50} required />
+                            <input type="email" id="gmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="E-mail address" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' maxLength={50} required
+                              value={form.email}
+                              onChange={e => setForm({ ...form, email: e.target.value })} />
                           </div>
                           {/* discord input */}
                           <div className='inline-flex w-full mb-4'>
                             <Image src={discord} alt="/" className='w-[1.6rem] mr-1 mb-1' />
-                            <input type="text" id="discord" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Discord ID" pattern='' maxLength={150} required />
+                            <input type="text" id="discord" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Discord ID" maxLength={150}
+                              value={form.discord_id}
+                              onChange={e => setForm({ ...form, discord_id: e.target.value })} />
                           </div>
                           {/* linkedin input */}
                           <div className='inline-flex w-full mb-4'>
                             <Image src={linkedin} alt="/" className='w-[1.6rem] mr-1 mb-1' />
-                            <input type="text" id="linkedin" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Linkedin profile link" maxLength={100} required />
+                            <input type="text" id="linkedin" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Linkedin profile link" maxLength={100} required
+                              value={form.linkedin}
+                              onChange={e => setForm({ ...form, linkedin: e.target.value })} />
                           </div>
                         </div>
                       </div>
@@ -391,13 +487,15 @@ const trainers = () => {
                               {/* date onboard */}
                               <div>
                                 <h1 className="block mb-2 text-sm font-sm text-gray-900 dark:text-white">Date Onboard</h1>
-                                <input type="date" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                <input type="date" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required
+                                  onChange={(handleDate)} />
                               </div>
 
                               {/* shift time */}
                               <div>
                                 <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Shift Time</label>
-                                <input className="mt-1 w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time" />
+                                <input className="mt-1 w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="time"
+                                  onChange={handleTimeChange} />
                               </div>
                             </div>
 
@@ -408,42 +506,54 @@ const trainers = () => {
                                 {/* monday */}
                                 <li className="w-full  dark:border-gray-600">
                                   <div className="flex items-center pl-3">
-                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S' />
+                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S'
+                                      name="monday"
+                                      onChange={handleCheckboxChange} />
                                     <label htmlFor="vue-checkbox-list" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mon</label>
                                   </div>
                                 </li>
                                 {/* tuesday */}
                                 <li className="w-full  dark:border-gray-600">
                                   <div className="flex items-center pl-3">
-                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S' />
+                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S'
+                                      name="tuesday"
+                                      onChange={handleCheckboxChange} />
                                     <label htmlFor="vue-checkbox-list" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tue</label>
                                   </div>
                                 </li>
                                 {/* wednesday */}
                                 <li className="w-full  dark:border-gray-600">
                                   <div className="flex items-center pl-3">
-                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S' />
+                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S'
+                                      name="wednesday"
+                                      onChange={handleCheckboxChange} />
                                     <label htmlFor="vue-checkbox-list" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wed</label>
                                   </div>
                                 </li>
                                 {/* thursday */}
                                 <li className="w-full  dark:border-gray-600">
                                   <div className="flex items-center pl-3">
-                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S' />
+                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S'
+                                      name="thursday"
+                                      onChange={handleCheckboxChange} />
                                     <label htmlFor="vue-checkbox-list" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Thur</label>
                                   </div>
                                 </li>
                                 {/* friday */}
                                 <li className="w-full  dark:border-gray-600">
                                   <div className="flex items-center pl-3">
-                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S' />
+                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S'
+                                      name="friday"
+                                      onChange={handleCheckboxChange} />
                                     <label htmlFor="vue-checkbox-list" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fri</label>
                                   </div>
                                 </li>
                                 {/* saturday */}
                                 <li className="w-full  dark:border-gray-600">
                                   <div className="flex items-center pl-3">
-                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S' />
+                                    <input id="vue-checkbox-list" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" placeholder='S'
+                                      name="saturday"
+                                      onChange={handleCheckboxChange} />
                                     <label htmlFor="vue-checkbox-list" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sat</label>
                                   </div>
                                 </li>
@@ -478,13 +588,13 @@ const trainers = () => {
                             {/* expertise */}
                             <div>
                               <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Expertise</label>
-                              <input type="text" id="expertise" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                              <input type="text" id="expertise" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                             </div>
 
                             {/* skills input */}
                             <div>
                               <label className="mb-4 text-sm font-medium text-gray-900 dark:text-white">Skills</label>
-                              <input type="text" id="skills" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                              <input type="text" id="skills" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                             </div>
                           </div>
                         </div>

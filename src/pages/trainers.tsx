@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import 'flowbite';
-import Image from 'next/image';
-import Navbar from '../components/Navbar';
-import Search from '../components/Search';
-import ButtonsTrainersTable from '../components/ButtonsTrainersTable';
-import editIcon from '../assets/ico/edit.svg';
-import discord from '../assets/logo/discord.svg';
-import github from '../assets/logo/github.svg';
-import linkedin from '../assets/logo/linkedin.svg';
-import gmail from '../assets/logo/gmail.svg';
-import boy1 from '../assets/img/boy1.jpg';
-import girl1 from '../assets/img/girl1.jpg';
-import girl2 from '../assets/img/girl2.jpg';
+import React, { useState } from 'react'
+import 'flowbite'
+import Image from 'next/image'
+import Navbar from '../components/Navbar'
+import Search from '../components/Search'
+import ButtonsTrainersTable from '../components/ButtonsTrainersTable'
+import editIcon from '../assets/ico/edit.svg'
+import discord from '../assets/logo/discord.svg'
+import github from '../assets/logo/github.svg'
+import linkedin from '../assets/logo/linkedin.svg'
+import gmail from '../assets/logo/gmail.svg'
+import boy1 from '../assets/img/boy1.jpg'
+import girl1 from '../assets/img/girl1.jpg'
+import girl2 from '../assets/img/girl2.jpg'
 
 interface FormData {
-  first_name: string;
-  last_name: string;
-  nickname: string;
-  address: string;
-  mobile_no: string;
-  email: string;
-  github: string;
-  linkedin: string;
-  discord_id: string;
-  active_status: boolean;
-  skill: string;
-  role: string;
-  avail_day: string[];
-  avail_time: string;
-  date_onboard: string;
+  first_name: string
+  last_name: string
+  nickname: string
+  address: string
+  mobile_no: string
+  email: string
+  github: string
+  linkedin: string
+  discord_id: string
+  active_status: boolean
+  skill: string
+  role: string
+  avail_day: string[]
+  avail_time: string
+  date_onboard: string
 }
 
 const trainers = () => {
@@ -48,7 +48,7 @@ const trainers = () => {
     avail_day: [],
     avail_time: '',
     date_onboard: ''
-  });
+  })
 
   async function create(data: FormData) {
     try {
@@ -76,53 +76,53 @@ const trainers = () => {
           avail_time: '',
           date_onboard: ''
         })
-      );
+      )
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = event.target;
+    const { name, checked } = event.target
     //setForm(form => ({...form, avail_day: checked ? [...form.avail_day, name] : form.avail_day.filter(day => day !== name)}))
     if (checked) {
-      setForm((form) => ({ ...form, avail_day: [...form.avail_day, name] }));
+      setForm((form) => ({ ...form, avail_day: [...form.avail_day, name] }))
     } else {
       setForm((form) => ({
         ...form,
         avail_day: form.avail_day.filter((day) => day !== name)
-      }));
+      }))
     }
-  };
+  }
   //for availTime
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //const { value } = event.target
     //setForm((form => ({...form, avail_time: value})))
-    setForm({ ...form, avail_time: event.target.value });
-  };
+    setForm({ ...form, avail_time: event.target.value })
+  }
 
   const handleSubmit = async (data: FormData) => {
     try {
-      create(data);
+      create(data)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   const handleDate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, date_onboard: event.target.value });
-  };
+    setForm({ ...form, date_onboard: event.target.value })
+  }
 
   // success message in add trainer form
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('')
 
   const handleUpdateData = () => {
-    setSuccessMessage('Trainer details updated successfully!');
-  };
+    setSuccessMessage('Trainer details updated successfully!')
+  }
 
   const handleInsertData = () => {
-    setSuccessMessage('Trainer added successfully!');
-  };
+    setSuccessMessage('Trainer added successfully!')
+  }
 
   return (
     <div className="min-h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
@@ -663,8 +663,8 @@ const trainers = () => {
                     {/* form */}
                     <form
                       onSubmit={(e) => {
-                        e.preventDefault(); //page wont referesh after submit
-                        handleSubmit(form); //handler for submit, creates a row in table
+                        e.preventDefault() //page wont referesh after submit
+                        handleSubmit(form) //handler for submit, creates a row in table
                       }}
                       className="space-y-4"
                       action="#"
@@ -1464,7 +1464,7 @@ const trainers = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default trainers;
+export default trainers

@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import 'flowbite';
-import Image from 'next/image';
-import Navbar from '../components/Navbar';
-import Search from '../components/Search';
-import ButtonsShiftTable from '../components/ButtonsShiftTable';
-import AvatarHover from '@/components/AvatarHover';
-import editIcon from '../assets/ico/edit.svg';
-import profile from '../assets/img/cyber-punk.jpeg';
-import boy1 from '../assets/img/boy1.jpg';
-import boy2 from '../assets/img/boy2.jpg';
-import boy3 from '../assets/img/boy3.png';
-import girl1 from '../assets/img/girl1.jpg';
-import girl2 from '../assets/img/girl2.jpg';
+import React, { useState } from 'react'
+import 'flowbite'
+import Image from 'next/image'
+import Navbar from '../components/Navbar'
+import Search from '../components/Search'
+import ButtonsShiftTable from '../components/ButtonsShiftTable'
+import AvatarHover from '@/components/AvatarHover'
+import editIcon from '../assets/ico/edit.svg'
+import profile from '../assets/img/cyber-punk.jpeg'
+import boy1 from '../assets/img/boy1.jpg'
+import boy2 from '../assets/img/boy2.jpg'
+import boy3 from '../assets/img/boy3.png'
+import girl1 from '../assets/img/girl1.jpg'
+import girl2 from '../assets/img/girl2.jpg'
 
 const schedule = () => {
   // success message in add shift form
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('')
 
   const handleUpdateData = () => {
-    setSuccessMessage('Shift updated successfully!');
-  };
+    setSuccessMessage('Shift updated successfully!')
+  }
 
   const handleInsertData = () => {
-    setSuccessMessage('Shift added successfully!');
-  };
+    setSuccessMessage('Shift added successfully!')
+  }
 
   return (
     <div className="pb-4 h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
@@ -1005,7 +1005,7 @@ const schedule = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default schedule;
+export default schedule

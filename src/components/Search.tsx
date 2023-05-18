@@ -1,5 +1,5 @@
-import React from 'react';
-import 'flowbite';
+import React from 'react'
+import 'flowbite'
 
 const Search = () => {
   return (
@@ -36,7 +36,7 @@ const Search = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

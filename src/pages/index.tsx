@@ -1,8 +1,8 @@
-import React from 'react';
-import 'flowbite';
-import Image from 'next/image';
-import Navbar from '../components/Navbar';
-import discord from '../assets/logo/discord.svg';
+import React from 'react'
+import 'flowbite'
+import Image from 'next/image'
+import Navbar from '../components/Navbar'
+import discord from '../assets/logo/discord.svg'
 
 export default function Home() {
   return (
@@ -206,5 +206,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  );
+  )
 }

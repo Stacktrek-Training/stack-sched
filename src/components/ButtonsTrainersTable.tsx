@@ -1,9 +1,9 @@
-import React from 'react';
-import 'flowbite';
-import Image from 'next/image';
-import exportIcon from '../assets/ico/export.svg';
-import deleteIcon from '../assets/ico/delete.svg';
-import addIcon from '../assets/ico/add.svg';
+import React from 'react'
+import 'flowbite'
+import Image from 'next/image'
+import exportIcon from '../assets/ico/export.svg'
+import deleteIcon from '../assets/ico/delete.svg'
+import addIcon from '../assets/ico/add.svg'
 
 const ButtonsTrainersTable = () => {
   return (
@@ -115,7 +115,7 @@ const ButtonsTrainersTable = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ButtonsTrainersTable;
+export default ButtonsTrainersTable

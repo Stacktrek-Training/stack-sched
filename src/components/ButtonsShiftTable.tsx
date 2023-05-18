@@ -1,8 +1,8 @@
-import React from 'react';
-import 'flowbite';
-import Image from 'next/image';
-import exportIcon from '../assets/ico/export.svg';
-import addIcon from '../assets/ico/add.svg';
+import React from 'react'
+import 'flowbite'
+import Image from 'next/image'
+import exportIcon from '../assets/ico/export.svg'
+import addIcon from '../assets/ico/add.svg'
 
 const ButtonsShiftTable = () => {
   return (
@@ -79,7 +79,7 @@ const ButtonsShiftTable = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ButtonsShiftTable;
+export default ButtonsShiftTable

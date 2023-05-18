@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const AvatarHover = () => {
   return (
@@ -54,7 +54,7 @@ const AvatarHover = () => {
       </div>
       <div data-popper-arrow></div>
     </div>
-  );
-};
+  )
+}
 
-export default AvatarHover;
+export default AvatarHover

@@ -6,7 +6,7 @@ The Scheduler app was built using Tailwind CSS and Next.js. The app allows the a
 ## 💻 **Tools Used**
 
 - VS Code
-- PostgreSQL
+- Supabase
 
 ## 📁 **Setting the project locally**
 

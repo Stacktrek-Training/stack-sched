@@ -1,47 +1,48 @@
-# stacktrek-scheduling-system
-Scheduler App built using Next.js. The app allows users to manage their schedules and appointments.
-StackTrek Scheduling System for Part-time Trainers
+# 📅 **Scheduling System for Part-time Trainers**
+The Scheduler app was built using Tailwind CSS and Next.js. The app allows the admin to conveniently manage and monitor the schedules and statuses of the part-timers.
 
+## **Getting Started**
+#
+## 💻 **Tools Used**
 
-Features
+- VS Code
+- PostgreSQL
 
-- User authentication: Users can sign up, log in, and log out to access their schedules.
-- Schedule management: Users can create, view, edit, and delete their schedules.
-- Appointment management: Users can create, view, edit, and delete their appointments within their schedules.
-- Reminders: Users can set reminders for their appointments.
-Notifications: Users receive notifications for upcoming appointments.
+## 📁 **Setting the project locally**
 
+- Clone this repository using this command in your terminal:
 
+        git clone https://github.com/Stacktrek-Training/stack-sched.git
 
-The Scheduler App is built using the following technologies:
+- Make sure the directory is set to stack-sched then install the dependencies:
 
-- Next.js: A React framework for building server-side rendered (SSR) applications.
-- React: A JavaScript library for building user interfaces.
-- Supabase: A database used for storing user and schedule data.
+        npm install next@latest react@latest react-dom@latest
 
+- Run the app through the terminal using this command:
 
-- Tailwind CSS: A utility-first CSS framework.
+        npm run dev
 
+- Deploy the app in your browser by opening this link:
 
-Getting Started:
-To run the Stack-Scheduler App locally, follow these steps:
+        http://localhost:3000
 
-- Clone the repository: git clone https://github.com/Stacktrek-Training/stack-sched.git
-- Navigate to the project directory: cd scheduler-app
-Install dependencies: npm install next@latest react@latest react-dom@latest
-- Run the development server: npm run dev
-- Open your browser and visit http://localhost:3000 to access the app.
+#
 
-Deployment
-To deploy the Scheduler App to a production environment, you can follow these steps:
+## 📋 **The Scheduler App is built using the following technologies:**
 
+✅ Next.js: A React framework for building server-side rendered (SSR) applications.
 
-- Create a production build of the app: npm run build
-Set up environment variables on your production server or hosting provider.
-- Start the server in production mode: npm start
+✅ React: A JavaScript library for building user interfaces.
 
-Acknowledgements
-- Next.js Documentation
-- React Documentation
-- [Supabase](https://docs)
-- Tailwind Documentation
+✅ Tailwind CSS: A utility-first CSS framework.
+
+✅ Flowbite: An open-source library of UI components based on the utility-first Tailwind CSS framework.
+
+✅ Supabase: A database used for storing user and schedule data.
+
+## 📄 **Acknowledgements**
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://react.dev/learn)
+- [Tailwind Documentation](https://v2.tailwindcss.com/docs)
+- [Flowbite](https://flowbite.com/docs/getting-started/introduction/)
+- [Supabase](https://supabase.com/docs)

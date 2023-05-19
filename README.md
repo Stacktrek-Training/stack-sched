@@ -1,7 +1,7 @@
 # 📅 **Scheduling System for Part-time Trainers**
 The Scheduler app was built using Tailwind CSS and Next.js. The app allows the admin to conveniently manage and monitor the schedules and statuses of the part-timers.
 
-## **Getting Started**
+# 📖**Getting Started**
 
 ## 💻 **Tools Used**
 

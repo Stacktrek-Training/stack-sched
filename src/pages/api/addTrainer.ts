@@ -14,7 +14,8 @@ type Data = {
 // }
 
 export default async function handler (req: NextApiRequest, res: NextApiResponse){
-  const {id, first_name, last_name, nickname, address, mobile_no, email, github, linkedin, active_status, skill, role, avail_day, avail_time, discord_id, date_onboard} = req.body;
+  const {id, first_name, last_name, nickname, address, mobile_no, email, github, linkedin,
+     active_status, skill, role, avail_day, avail_time, discord_id, date_onboard} = req.body;
   try {
     await prisma.trainers.create({
       data: {

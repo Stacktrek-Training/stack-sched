@@ -30,19 +30,12 @@ The Scheduler app was built using Tailwind CSS and Next.js. The app allows the a
 
 ## 📋 **The Scheduler App is built using the following technologies:**
 
-✅ Next.js: A React framework for building server-side rendered (SSR) applications.
+✅ <a href="(https://nextjs.org/docs)" target="_blank">Next.js</a> : A React framework for building server-side rendered (SSR) applications.
 
-✅ React: A JavaScript library for building user interfaces.
+✅ <a href="((https://react.dev/learn))" target="_blank">React</a> : A JavaScript library for building user interfaces.
 
-✅ Tailwind CSS: A utility-first CSS framework.
+✅ <a href="((https://v2.tailwindcss.com/docs))" target="_blank">Tailwind CSS</a> : A utility-first CSS framework.
 
-✅ Flowbite: An open-source library of UI components based on the utility-first Tailwind CSS framework.
+✅ <a href="((https://flowbite.com/docs/getting-started/introduction/))" target="_blank">Flowbite</a> : An open-source library of UI components based on the utility-first Tailwind CSS framework.
 
-✅ Supabase: A database used for storing user and schedule data.
-
-## 📄 **Acknowledgements**
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://react.dev/learn)
-- [Tailwind Documentation](https://v2.tailwindcss.com/docs)
-- [Flowbite](https://flowbite.com/docs/getting-started/introduction/)
-- [Supabase](https://supabase.com/docs)
+✅ <a href="((https://supabase.com/docs))" target="_blank">Supabase</a>: A database used for storing user and schedule data.

@@ -1,116 +1,213 @@
-import React, { useState } from 'react'
-import 'flowbite'
-import Image from 'next/image'
-import Navbar from '../components/Navbar'
-import Search from '../components/Search'
-import ButtonsTrainersTable from '../components/ButtonsTrainersTable'
-import editIcon from '../assets/ico/edit.svg'
-import discord from '../assets/logo/discord.svg'
-import github from '../assets/logo/github.svg'
-import linkedin from '../assets/logo/linkedin.svg'
-import gmail from '../assets/logo/gmail.svg'
-import boy1 from '../assets/img/boy1.jpg'
-import girl1 from '../assets/img/girl1.jpg'
-import girl2 from '../assets/img/girl2.jpg'
+import React, { useState, useEffect } from "react";
+import "flowbite";
+import Image from "next/image";
+import Navbar from "../components/Navbar";
+import Search from "../components/Search";
+import ButtonsTrainersTable from "../components/ButtonsTrainersTable";
+import editIcon from "../assets/ico/edit.svg";
+import discord from "../assets/logo/discord.svg";
+import github from "../assets/logo/github.svg";
+import linkedin from "../assets/logo/linkedin.svg";
+import gmail from "../assets/logo/gmail.svg";
+import boy1 from "../assets/img/boy1.jpg";
+import girl1 from "../assets/img/girl1.jpg";
+import girl2 from "../assets/img/girl2.jpg";
+import { prisma } from "../../lib/prisma";
+import { GetServerSideProps } from "next";
 
 interface FormData {
-  first_name: string
-  last_name: string
-  nickname: string
-  address: string
-  mobile_no: string
-  email: string
-  github: string
-  linkedin: string
-  discord_id: string
-  active_status: boolean
-  skill: string
-  role: string
-  avail_day: string[]
-  avail_time: string
-  date_onboard: string
+  first_name: string;
+  last_name: string;
+  nickname: string;
+  address: string;
+  mobile_no: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  discord_id: string;
+  active_status: boolean;
+  skill: string;
+  role: string;
+  avail_day: string[];
+  avail_time: string;
+  date_onboard: string;
 }
 
-const trainers = () => {
+interface TrainersProps {
+  trainersData: trainers[];
+}
+
+interface trainers {
+  id: string;
+  first_name: string;
+  last_name: string;
+  nickname: string;
+  address: string;
+  mobile_no: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  discord_id: string;
+  active_status: boolean;
+  skill: string;
+  role: string;
+  avail_day: string[];
+  avail_time: string;
+  date_onboard: string;
+}
+
+// async function getTrainers() {
+//   const res = await fetch('http://localhost:3000/api/getTrainer')
+//   if (!res.ok){
+//     console.log("==============================================================================================")
+//     console.log(JSON.stringify(res))
+//   }
+//   return res.json
+// }
+
+export async function getServerSideProps() {
+  try {
+    const trainersData = await prisma.trainers.findMany({
+      select: {
+        id: true,
+        first_name: true,
+        last_name: true,
+        nickname: true,
+        address: true,
+        mobile_no: true,
+        email: true,
+        github: true,
+        linkedin: true,
+        active_status: true,
+        skill: true,
+        role: true,
+        avail_day: true,
+        avail_time: true,
+        discord_id: true,
+        date_onboard: true,
+
+      },
+    });
+    //maps trainers from db to serializedTrainersData
+    const serializedTrainersData = trainersData.map((trainer) => ({
+      ...trainer,
+      id: trainer.id.toString(),
+      avail_time: (trainer.avail_time?.toString()) ?? null, 
+      date_onboard: (trainer.date_onboard?.toString()) ?? null
+    }));
+    return {
+      props: {
+        trainersData: serializedTrainersData,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        trainersData: [],
+      },
+    };
+  }
+}
+
+const trainers = ({ trainersData }: TrainersProps) => {
   const [form, setForm] = useState<FormData>({
-    first_name: '',
-    last_name: '',
-    nickname: '',
-    address: '',
-    mobile_no: '',
-    email: '',
-    github: '',
-    linkedin: '',
-    discord_id: '',
+    first_name: "",
+    last_name: "",
+    nickname: "",
+    address: "",
+    mobile_no: "",
+    email: "",
+    github: "",
+    linkedin: "",
+    discord_id: "",
     active_status: false,
-    skill: '',
-    role: '',
+    skill: "",
+    role: "",
     avail_day: [],
-    avail_time: '',
-    date_onboard: ''
-  })
+    avail_time: "",
+    date_onboard: "",
+  });
+
+  const [trainers, setTrainers] = useState<trainers[]>([]);
+  useEffect(() => {
+    setTrainers(trainersData);
+  }, [trainersData]);
 
   async function create(data: FormData) {
     try {
-      fetch('http://localhost:3000/api/addTrainer', {
+      fetch("http://localhost:3000/api/addTrainer", {
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        method: 'POST'
+        method: "POST",
       }).then(() =>
         setForm({
-          first_name: '',
-          last_name: '',
-          nickname: '',
-          address: '',
-          mobile_no: '',
-          email: '',
-          github: '',
-          linkedin: '',
-          discord_id: '',
+          first_name: "",
+          last_name: "",
+          nickname: "",
+          address: "",
+          mobile_no: "",
+          email: "",
+          github: "",
+          linkedin: "",
+          discord_id: "",
           active_status: false,
-          skill: '',
-          role: '',
+          skill: "",
+          role: "",
           avail_day: [],
-          avail_time: '',
-          date_onboard: ''
+          avail_time: "",
+          date_onboard: "",
         })
-      )
+      );
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = event.target
+    const { name, checked } = event.target;
     //setForm(form => ({...form, avail_day: checked ? [...form.avail_day, name] : form.avail_day.filter(day => day !== name)}))
     if (checked) {
-      setForm((form) => ({ ...form, avail_day: [...form.avail_day, name] }))
+      setForm((form) => ({ ...form, avail_day: [...form.avail_day, name] }));
     } else {
       setForm((form) => ({
         ...form,
-        avail_day: form.avail_day.filter((day) => day !== name)
-      }))
+        avail_day: form.avail_day.filter((day) => day !== name),
+      }));
     }
-  }
+  };
   //for availTime
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //const { value } = event.target
     //setForm((form => ({...form, avail_time: value})))
-    setForm({ ...form, avail_time: event.target.value })
-  }
+    setForm({ ...form, avail_time: event.target.value });
+  };
 
   const handleSubmit = async (data: FormData) => {
     try {
-      create(data)
+      await create(data);
+      window.location.reload()
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const handleDate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, date_onboard: event.target.value })
+    setForm({ ...form, date_onboard: event.target.value });
+  };
+  console.log(
+    "========================================================================="
+  );
+  console.log(trainersData);
+
+  //props checker if there really is data
+  useEffect(() => {
+    console.log(trainersData);
+  }, [trainersData]);
+  if (!trainersData || trainersData.length === 0) {
+    return <div>No Data Available</div>;
   }
 
   // success message in add trainer form
@@ -278,348 +375,124 @@ const trainers = () => {
                   </thead>
                   {/* data */}
                   <tbody className="overflow-y-auto">
+                    {trainers.map((trainer) => (
+                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        {/* checkbox */}
+                        <td className="w-4 px-4 py-4">
+                          <div className="flex items-center">
+                            <input
+                              id="checkbox-table-search-1"
+                              type="checkbox"
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              htmlFor="checkbox-table-search-1"
+                              className="sr-only"
+                            >
+                              checkbox
+                            </label>
+                          </div>
+                        </td>
+                        {/* name column */}
+                        <td
+                          scope="row"
+                          className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white text-[0.85rem]"
+                        >
+                          <div className="relative w-[2.6rem] my-[2.3rem]">
+                            <Image
+                              className="w-auto h-9 rounded-full"
+                              src={girl2}
+                              alt="profile image"
+                            />
+                            {/* profile indicator */}
+                            <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#CD7F32] border-2 border-white dark:border-gray-800 rounded-full"></span>
+                          </div>
+                          <div className="pl-3 pt-2">
+                            <div className="font-semibold">
+                              {trainer.last_name}, {trainer.first_name} ({trainer.nickname})
+                            </div>
+                            <div className="font-normal text-gray-500">
+                              {trainer.mobile_no}
+                            </div>
+                            <div className="flex font-normal text-gray-500">
+                              {trainer.email}
+                            </div>
+                          </div>
+                        </td>
+                        {/* address column */}
+                        <td className="px-2 py-4 h-16 text-[0.85rem]">
+                          {trainer.address}
+                        </td>
+                        {/* specific role column */}
+                        <td className="px-2 py-4 h-16 text-[0.85rem]">
+                          Trainer
+                        </td>
+                        {/* status column */}
+                        <td className="px-2 py-4 h-16 text-[0.85rem]">
+                          <div className="flex items-center text-red-500">
+                            {trainer.active_status}
+                          </div>
+                        </td>
+                        {/* date onboard column */}
+                        <td className="px-2 py-4 h-16 text-[0.85rem]">
+                          {trainer.date_onboard}
+                        </td>
+                        {/* skills column */}
+                        <td className="px-2 py-4 h-16 text-[0.85rem]">
+                          Java, HTML, CSS
+                        </td>
+                        {/* available schedule column */}
+                        <td className="px-2 py-4 h-16 text-[0.85rem]">
+                          {trainer.avail_day.join(", ")} - {trainer.avail_time}
+                        </td>
+                        {/* action column */}
+                        <td className="w-36 px-2 py-4 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            <Image
+                              src={discord}
+                              alt="/"
+                              className="w-[1.6rem] mr-1 mb-1"
+                            />
+                          </a>
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            <Image
+                              src={github}
+                              alt="/"
+                              className="w-[1.5rem] mr-1 mb-1"
+                            />
+                          </a>
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            <Image
+                              src={linkedin}
+                              alt="/"
+                              className="w-[1.7rem] mr-1 mb-1"
+                            />
+                          </a>
+                          <a
+                            href="#"
+                            data-modal-target="edit-modal"
+                            data-modal-toggle="edit-modal"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            <Image
+                              src={editIcon}
+                              alt="/"
+                              className="w-[1.4rem] mr-1 mt-[-0.5rem]"
+                            />
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
                     {/* first row */}
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      {/* checkbox */}
-                      <td className="w-4 px-4 py-4">
-                        <div className="flex items-center">
-                          <input
-                            id="checkbox-table-search-1"
-                            type="checkbox"
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <label
-                            htmlFor="checkbox-table-search-1"
-                            className="sr-only"
-                          >
-                            checkbox
-                          </label>
-                        </div>
-                      </td>
-                      {/* name column */}
-                      <td
-                        scope="row"
-                        className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white text-[0.85rem]"
-                      >
-                        <div className="relative w-[2.6rem] my-[2.3rem]">
-                          <Image
-                            className="w-auto h-9 rounded-full"
-                            src={girl2}
-                            alt="profile image"
-                          />
-                          {/* profile indicator */}
-                          <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#CD7F32] border-2 border-white dark:border-gray-800 rounded-full"></span>
-                        </div>
-                        <div className="pl-3 pt-2">
-                          <div className="font-semibold">
-                            Garfin, April Jane (Jane)
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            09xxxxxxxxx
-                          </div>
-                          <div className="flex font-normal text-gray-500">
-                            apriljanegarfin.stacktrek@gmail.com
-                          </div>
-                        </div>
-                      </td>
-                      {/* address column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        Sibalom, Antique
-                      </td>
-                      {/* specific role column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">Trainer</td>
-                      {/* status column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        <div className="flex items-center text-red-500">
-                          For Pooling
-                        </div>
-                      </td>
-                      {/* date onboard column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        February 18, 2023
-                      </td>
-                      {/* skills column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        Java, HTML, CSS
-                      </td>
-                      {/* available schedule column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        M W F - 1:00 -4:00
-                      </td>
-                      {/* action column */}
-                      <td className="w-36 px-2 py-4 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={discord}
-                            alt="/"
-                            className="w-[1.6rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={github}
-                            alt="/"
-                            className="w-[1.5rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={linkedin}
-                            alt="/"
-                            className="w-[1.7rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          data-modal-target="edit-modal"
-                          data-modal-toggle="edit-modal"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={editIcon}
-                            alt="/"
-                            className="w-[1.4rem] mr-1 mt-[-0.5rem]"
-                          />
-                        </a>
-                      </td>
-                    </tr>
-                    {/* second row */}
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      {/* checkbox */}
-                      <td className="w-4 px-4 py-4 text-[0.85rem]">
-                        <div className="flex items-center">
-                          <input
-                            id="checkbox-table-search-1"
-                            type="checkbox"
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <label
-                            htmlFor="checkbox-table-search-1"
-                            className="sr-only"
-                          >
-                            checkbox
-                          </label>
-                        </div>
-                      </td>
-                      {/* name column */}
-                      <td
-                        scope="row"
-                        className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white text-[0.85rem]"
-                      >
-                        <div className="relative w-[2.6rem] my-[2.3rem]">
-                          <Image
-                            className="w-auto h-9 rounded-full"
-                            src={boy1}
-                            alt="profile image"
-                          />
-                          {/* profile indicator */}
-                          <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#C0C0C0] border-2 border-white dark:border-gray-800 rounded-full"></span>
-                        </div>
-                        <div className="pl-3 pt-2">
-                          <div className="font-semibold">
-                            Miguel Edvenson Jay (Ed)
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            09xxxxxxxxx
-                          </div>
-                          <div className="flex font-normal text-gray-500">
-                            edvensonjaymiguel.stacktrek@gmail.com
-                          </div>
-                        </div>
-                      </td>
-                      {/* address column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        San Jose, Antique
-                      </td>
-                      {/* specific role column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">Trainer</td>
-                      {/* status column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        <div className="flex items-center text-green-500">
-                          Active
-                        </div>
-                      </td>
-                      {/* date onboard column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        February 18, 2023
-                      </td>
-                      {/* skills column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        Java, HTML, CSS
-                      </td>
-                      {/* available schedule column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        M W F - 1:00 -4:00
-                      </td>
-                      {/* action column */}
-                      <td className="w-36 px-2 py-4 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={discord}
-                            alt="/"
-                            className="w-[1.6rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={github}
-                            alt="/"
-                            className="w-[1.5rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={linkedin}
-                            alt="/"
-                            className="w-[1.7rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          data-modal-target="edit-modal"
-                          data-modal-toggle="edit-modal"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={editIcon}
-                            alt="/"
-                            className="w-[1.4rem] mr-1 mt-[-0.5rem]"
-                          />
-                        </a>
-                      </td>
-                    </tr>
-                    {/* third row */}
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      {/* checkbox */}
-                      <td className="w-4 px-4 py-4">
-                        <div className="flex items-center">
-                          <input
-                            id="checkbox-table-search-1"
-                            type="checkbox"
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <label
-                            htmlFor="checkbox-table-search-1"
-                            className="sr-only"
-                          >
-                            checkbox
-                          </label>
-                        </div>
-                      </td>
-                      {/* name column */}
-                      <td
-                        scope="row"
-                        className="flex items-center px-2 py-4 h-16 text-gray-900  dark:text-white text-[0.85rem]"
-                      >
-                        <div className="relative w-[2.6rem] my-[2.3rem]">
-                          <Image
-                            className="w-auto h-9 rounded-full"
-                            src={girl1}
-                            alt="profile image"
-                          />
-                          {/* profile indicator */}
-                          <span className="top-6 left-7 absolute  w-3.5 h-3.5 bg-[#D4AF37] border-2 border-white dark:border-gray-800 rounded-full"></span>
-                        </div>
-                        <div className="pl-3 pt-2">
-                          <div className="font-semibold">
-                            Sabino Rustia (Mutya)
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            09xxxxxxxxx
-                          </div>
-                          <div className="flex font-normal text-gray-500">
-                            rustiasabino.stacktrek@gmail.com
-                          </div>
-                        </div>
-                      </td>
-                      {/* address column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        Sibalom, Antique
-                      </td>
-                      {/* specific role column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">Trainer</td>
-                      {/* status column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        <div className="flex items-center text-green-500">
-                          Active
-                        </div>
-                      </td>
-                      {/* date onboard column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        February 18, 2023
-                      </td>
-                      {/* skills column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        Java, HTML, CSS
-                      </td>
-                      {/* available schedule column */}
-                      <td className="px-2 py-4 h-16 text-[0.85rem]">
-                        M W F - 1:00 -4:00
-                      </td>
-                      {/* action column */}
-                      <td className="w-36 px-2 py-2 h-16 md:inline-flex sm:flex-wrap items-center mt-[-2.1rem]">
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={discord}
-                            alt="/"
-                            className="w-[1.6rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={github}
-                            alt="/"
-                            className="w-[1.5rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={linkedin}
-                            alt="/"
-                            className="w-[1.7rem] mr-1 mb-1"
-                          />
-                        </a>
-                        <a
-                          href="#"
-                          data-modal-target="edit-modal"
-                          data-modal-toggle="edit-modal"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          <Image
-                            src={editIcon}
-                            alt="/"
-                            className="w-[1.4rem] mr-1 mt-[-0.5rem]"
-                          />
-                        </a>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -1464,7 +1337,26 @@ const trainers = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+export default trainers;
 
-export default trainers
+// export async function getServerSideProps(){
+//   try {
+//     const response = await fetch("http://localhost:3000/api/getTrainer")
+//     const trainersData = await response.json()
+
+//     return{
+//       props: {
+//         trainersData
+//       }
+//     }
+//   } catch (error) {
+//     console.error(error)
+//     return{
+//       props: {
+//         trainersData: []
+//       },
+//     }
+//   }
+// }

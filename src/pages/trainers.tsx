@@ -327,7 +327,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
               className="relative shadow-md sm:rounded-lg border-l-4 border-l-[#8329F5] h-full overflow-y-auto lg:mt-4"
               style={{ height: 'calc(100vh - 190px)' }}
             >
-              <div className="h-full overflow-y-auto">
+              <div className="h-full">
                 <table className="bg-black-200 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   {/* header */}
                   <thead className="sticky top-0 z-20 text-center text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">

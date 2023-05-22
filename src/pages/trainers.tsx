@@ -492,7 +492,6 @@ const trainers = ({ trainersData }: TrainersProps) => {
                         </td>
                       </tr>
                     ))}
-                    {/* first row */}
                   </tbody>
                 </table>
               </div>

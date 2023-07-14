@@ -15,6 +15,10 @@ import girl2 from "../assets/img/girl2.jpg";
 import { prisma } from "../../lib/prisma";
 import { GetServerSideProps } from "next";
 import { saveAs } from 'file-saver';
+import { SupabaseClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
+import { FormEvent } from 'react';
+import { SupabaseAuthClient } from "@supabase/supabase-js/dist/module/lib/SupabaseAuthClient";
 
 interface FormData {
   first_name: string;
@@ -65,6 +69,19 @@ interface trainers {
 //   }
 //   return res.json
 // }
+
+  const supabase = createClient('https://qblypkqhaickwtzuunyw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFibHlwa3FoYWlja3d0enV1bnl3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njg4NzI0MSwiZXhwIjoyMDAyNDYzMjQxfQ.M_5wBcMBZx2EMjNZrzUJaB-gXUr6HgeoMNN9xaCD9Q0');
+async function refreshSession() {
+  try {
+    await supabase.auth.refreshSession();
+    console.log('Session refreshed successfully.');
+  } catch (error) {
+    console.error('Failed to refresh session:', error);
+  }
+}
+
+// Refresh the session every hour (3600000 milliseconds)
+setInterval(refreshSession, 3600000);
 
 export async function getServerSideProps() {
   try {
@@ -219,28 +236,48 @@ const trainers = ({ trainersData }: TrainersProps) => {
     setSuccessMessage('Trainer details updated successfully!')
   }
 
-  const handleInsertData = () => {
-    setSuccessMessage('Trainer added successfully!')
-  }
+  const handleInsertData = async () => {
+// Extract form field values
+const firstName = form.first_name;
+const lastName = form.last_name;
+const nickname = form.nickname;
+const address = form.address;
+const mobile_no = form.mobile_no;
+const email = form.email;
+const github = form.github;
+const linkedin = form.linkedin;
+const discord_id = form.discord_id;
+const active_status = form.active_status;
+const skill = form.skill;
+const role = form.role;
 
-  const handleExport = () => {
-    // Generate the data to be exported (replace with your actual data)
-    const data = 'Example data';
-  
-    // Create a new Blob object with the data and set the file type
-    const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
-  
-    // Save the file using FileSaver.js
-    saveAs(blob, 'trainers_data.txt');
-  };
+// Insert new trainer data into the "trainers" table
+const { data, error } = await supabase.from('trainers').insert([
+  {
+    first_name: firstName,
+    last_name: lastName,
+    nickname: nickname,
+    address: address,
+    mobile_no: mobile_no,
+    email: email,
+    github: github,
+    linkedin: linkedin,
+    discord_id: discord_id,
+    active_status: active_status,
+    skill: skill,
+    role: role
+  },
+]);
 
-  <button
-  id="export-modal"
-    onClick={handleExport}
-    type="submit"
-    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                        >
-    </button>
+if (error) {
+  console.error(error);
+  setSuccessMessage('Error occurred while registering the trainer.');
+} else {
+  console.log(data);
+  setSuccessMessage('Trainer registered successfully!');
+}
+await supabase.auth.refreshSession();
+};
 
   return (
     <div className="min-h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
@@ -739,7 +776,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
                                   type="date"
                                   id="first_name"
                                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                  required
+                                  
                                   onChange={handleDate}
                                 />
                               </div>
@@ -751,7 +788,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
                                 </label>
                                 <input
                                   className="mt-1 w-full border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                  required
+                                 
                                   type="time"
                                   onChange={handleTimeChange}
                                 />
@@ -898,7 +935,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
                               </label>
                               <select
                                 className="mt-1 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full flex justify-between border-none h-[2.65rem]"
-                                required
+                               
                               >
                                 <option value="">Select Status</option>
                                 <option value="Active">Active</option>
@@ -954,7 +991,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
                           </p>
                         )}
                         <button
-                          onClick={handleInsertData}
+                          onSubmit={handleInsertData}
                           type="submit"
                           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
@@ -1141,7 +1178,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
                                   type="date"
                                   id="first_name"
                                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                  required
+                                  
                                 />
                               </div>
 

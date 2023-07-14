@@ -4,6 +4,8 @@ import Image from 'next/image'
 import exportIcon from '../assets/ico/export.svg'
 import deleteIcon from '../assets/ico/delete.svg'
 import addIcon from '../assets/ico/add.svg'
+import { saveAs } from 'file-saver';
+
 
 const ButtonsTrainersTable = () => {
   return (
@@ -16,12 +18,15 @@ const ButtonsTrainersTable = () => {
         <div className="flex max-w-screen">
           {/* export button */}
           <button
+          id="export-modal"
             type="button"
+            onClick={handleExport}
             className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
           >
             <Image src={exportIcon} alt="/" className="w-4 mr-2" />
             Export
           </button>
+          
           {/* delete button */}
           <button
             data-modal-target="popup-modal"
@@ -117,5 +122,16 @@ const ButtonsTrainersTable = () => {
     </div>
   )
 }
+
+const handleExport = () => {
+  // Generate the data to be exported (replace with your actual data)
+  const data = 'Example data';
+
+  // Create a new Blob object with the data and set the file type
+  const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+
+  // Save the file using FileSaver.js
+  saveAs(blob, 'trainers_data.txt');
+};
 
 export default ButtonsTrainersTable

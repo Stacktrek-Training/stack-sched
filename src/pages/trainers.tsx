@@ -14,6 +14,7 @@ import girl1 from "../assets/img/girl1.jpg";
 import girl2 from "../assets/img/girl2.jpg";
 import { prisma } from "../../lib/prisma";
 import { GetServerSideProps } from "next";
+import { saveAs } from 'file-saver';
 
 interface FormData {
   first_name: string;
@@ -165,6 +166,7 @@ const trainers = ({ trainersData }: TrainersProps) => {
       console.log(error);
     }
   }
+  
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
@@ -220,6 +222,25 @@ const trainers = ({ trainersData }: TrainersProps) => {
   const handleInsertData = () => {
     setSuccessMessage('Trainer added successfully!')
   }
+
+  const handleExport = () => {
+    // Generate the data to be exported (replace with your actual data)
+    const data = 'Example data';
+  
+    // Create a new Blob object with the data and set the file type
+    const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+  
+    // Save the file using FileSaver.js
+    saveAs(blob, 'trainers_data.txt');
+  };
+
+  <button
+  id="export-modal"
+    onClick={handleExport}
+    type="submit"
+    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+    </button>
 
   return (
     <div className="min-h-screen max-w-screen bg-white dark:bg-gray-800 dark:border-gray-700">
